@@ -1,0 +1,20 @@
+# Node.js
+npm-debug.log
+yarn-error.log
+# Build output
+/dist/
+# Angular development server
+/.angular/
+# IDE files
+*.iml
+.idea/
+*.vscode/
+
+frontend/app/dist
+frontend/app/tmp
+frontend/app/out-tsc
+frontend/node_modules
+frontend/.angular/
+
+backend/dist
+backend/node_modules
