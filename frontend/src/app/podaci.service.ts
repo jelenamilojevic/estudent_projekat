@@ -21,7 +21,7 @@ export class PodaciService {
 
 
   dohvSveZaposlene() {
-    return this.http.get(`${this.uri}/dohvSveZaposlene`);
+    return this.http.get<Zaposleni[]>(`${this.uri}/dohvSveZaposlene`);
   }
 
   dohvSvaObavestenja() {

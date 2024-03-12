@@ -15,8 +15,8 @@ export class ZaposleniComponent implements OnInit {
 
   ngOnInit(): void {
     this.dohvZaposlene();
-    this.prikazi = null;
-    this.korisnik = localStorage.getItem('tipkor');
+    //this.prikazi = null;
+    this.korisnik = localStorage.getItem('tipkor')!;
     if (this.korisnik == "student") {
       this.student = true;
       this.gost = false;
@@ -27,14 +27,14 @@ export class ZaposleniComponent implements OnInit {
   }
 
 
-  zaposleni: Zaposleni[];
-  prikazi: Zaposleni;
-  drzi : Drzi[];
-  username: string;
+  zaposleni: Zaposleni[] =[];
+  prikazi!: Zaposleni;
+  drzi : Drzi[] = [];
+  username: string = "";
 
   student: boolean = false;
   gost: boolean = true;
-  korisnik: string;
+  korisnik: string = "";
 
   dohvZaposlene() {
     this.podaci.dohvSveZaposlene().subscribe((data: Zaposleni[])=>{
@@ -61,7 +61,7 @@ export class ZaposleniComponent implements OnInit {
     })
   }
 
-    
+
  logout() {
   localStorage.setItem('korisnik',"");
   localStorage.setItem('tipkor',"");
