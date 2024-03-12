@@ -20,21 +20,21 @@ export class ZapdodavanjeComponent implements OnInit {
   }
 
 
-  username = localStorage.getItem('korisnik');
+  username = localStorage.getItem('korisnik')!;
 
   drzi: Drzi[] = [];
 
-  predmet: string;
-  datum: string;
+  predmet: string = "";
+  datum: string = "";
 
   obavestenje: Obavestenje = new Obavestenje();
 
-  obavestenja: Obavestenje[];
+  obavestenja: Obavestenje[] = [];
   max = 0;
 
-  datumb: Date;
+  datumb!: Date;
 
-  fileUpload: File;
+  fileUpload!: File;
 
 
   dohvDrzi() {
@@ -53,7 +53,7 @@ export class ZapdodavanjeComponent implements OnInit {
     this.obavestenje.datum = new Date(this.datum);
     this.obavestenje.fajl = this.fileUpload.name;
     this.podaci.dodajObavestenje(this.obavestenje.naziv,this.obavestenje.tekst,this.obavestenje.datum,
-      this.obavestenje.id, this.obavestenje.autor, this.obavestenje.naslov,this.obavestenje.fajl).subscribe(ob=> {
+      this.obavestenje.id, this.obavestenje.autor, this.obavestenje.naslov,this.obavestenje.fajl).subscribe((ob:any)=> {
         if (ob['obavestenje']== 'ok') {
           alert('obavestenje added');
         }
@@ -82,7 +82,7 @@ export class ZapdodavanjeComponent implements OnInit {
   }
 
   handleFileInput(files: FileList) {
-    this.fileUpload = files.item(0);
+    this.fileUpload = files.item(0)!;
   }
 
   logout() {
