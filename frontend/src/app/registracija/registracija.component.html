@@ -10,7 +10,7 @@
 
 <body>
   <div id="main">
-    <div id="header"> 
+    <div id="header">
       <div id="logo">
         <div id="logo_text">
           <!-- class="logo_colour", allows you to change the colour of the text -->
@@ -35,10 +35,10 @@
     <div id="content_header"></div>
     <div id="site_content">
       <div id = "banner">
-        
+
       </div>
 	  <div id="sidebar_container">
-        
+
         <div class="sidebar">
           <div class="sidebar_top"></div>
           <div class="sidebar_item">
@@ -51,28 +51,28 @@
           </div>
           <div class="sidebar_base"></div>
         </div>
-        
+
       </div>
       <div id="content">
-       
+
        <h1>Registrujte se: </h1>
        <hr>
        <form>
         <div class="form_settings">
           <p><span>Korisnicko ime: </span>
-              <input type="text"  name="username" [(ngModel)]='username' class = "form-control" required #korp="ngModel"> 
+              <input type="text"  name="username" [(ngModel)]='username' class = "form-control" required #korp="ngModel">
           </p>
           <p><span>Lozinka: </span>
             <input type="password" name="password" [(ngModel)]='password' class = "form-control" required #passp="ngModel"/>
           </p>
           <p><span>Ime: </span>
-            <input type="text"  name="ime" [(ngModel)]='ime' class = "form-control" required #imep="ngModel"> 
+            <input type="text"  name="ime" [(ngModel)]='ime' class = "form-control" required #imep="ngModel">
           </p>
           <p><span>Prezime: </span>
-            <input type="text"  name="prezime" [(ngModel)]='prezime' class = "form-control" required #prezp="ngModel"> 
+            <input type="text"  name="prezime" [(ngModel)]='prezime' class = "form-control" required #prezp="ngModel">
           </p>
           <p><span>Indeks: </span>
-            <input type="text"  name="indeks" [(ngModel)]='indeks' class = "form-control" required #indp="ngModel"> 
+            <input type="text"  name="indeks" [(ngModel)]='indeks' class = "form-control" required #indp="ngModel">
           </p>
           <p><span>Tip</span>
             <select name="tip" [(ngModel)]='tip' class = "form-control" required #tipp="ngModel">
@@ -93,11 +93,11 @@
         </div>
       </form>
 
-      <div *ngIf="korp.errors.required && (korp.dirty || korp.touched)">
+      <div *ngIf="korp.errors?.['required'] && (korp.dirty || korp.touched)">
          Unesite korisnicko ime
       </div>
 
-   
+
 
 
       <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/><br/><br/>

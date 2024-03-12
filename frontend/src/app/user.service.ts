@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http'
+import { Korisnik } from './model/korisnik.model';
 
 @Injectable({
   providedIn: 'root'
@@ -113,7 +114,7 @@ export class UserService {
     const data = {
       username: username
     }
-    return this.http.post(`${this.uri}/dohvKorisnika`,data);
+    return this.http.post<Korisnik>(`${this.uri}/dohvKorisnika`,data);
   }
 
 }

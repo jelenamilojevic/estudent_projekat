@@ -21,13 +21,13 @@ export class RegistracijaComponent implements OnInit {
     this.status  = "";
   }
 
-  username: string;
-  password: string;
-  ime: string;
-  prezime: string;
-  indeks: string;
-  tip: string;
-  status: string;
+  username: string ="";
+  password: string = "";
+  ime: string ="";
+  prezime: string ="";
+  indeks: string ="";
+  tip: string ="";
+  status: string ="";
 
   patternStudent = /([a-z]){2}([1-2]){1}([0-9]){5}([dmp]){1}@student.etf.rs/;
   patternIndeks = /dddd/;
@@ -40,28 +40,28 @@ export class RegistracijaComponent implements OnInit {
     this.prezime != "" && this.indeks!= "" && this.tip!="" && this.status !="") {
 
       if (this.patternStudent.test(this.username)) {
-      
+
         this.userService.dohvatiKorisnika(this.username).subscribe((korisnik: Korisnik)=> {
           if (korisnik) {
             alert('korisnik sa tim username vec postoji');
           } else {
 
             this.userService.registruj(this.username, this.password, this.ime, this.prezime,
-              this.indeks, this.tip, this.status).subscribe(ob=> {
+              this.indeks, this.tip, this.status).subscribe((ob:any)=> {
                 if (ob['user']== 'ok') {
                   alert('student added');
                 }
               });
-        
-              this.userService.registrujKor(this.username, this.password, "student","jeste").subscribe(ob=> {
+
+              this.userService.registrujKor(this.username, this.password, "student","jeste").subscribe((ob:any)=> {
                 if (ob['user']=='ok') {
                   alert('kor added');
                 }
               });
-          
+
           }
         })
-       
+
       } else {
         alert('username nije u dobrom formatu')
       }
@@ -69,7 +69,7 @@ export class RegistracijaComponent implements OnInit {
     } else {
       alert('unesite sve podatke!');
     }
-    
+
   }
 
 }
