@@ -13,15 +13,15 @@ export class ZapizmenaformaComponent implements OnInit {
   constructor(private podaci: PodaciService, private router: Router) { }
 
   ngOnInit(): void {
-    this.id = parseInt(localStorage.getItem('vesturedi'));
+    this.id = parseInt(localStorage.getItem('vesturedi')!);
     this.dohvatiObavestenje();
   }
 
 
-  uredjivanje: Obavestenje;
-  id: number;
-  tmp: Obavestenje;
-  datum: string;
+  uredjivanje!: Obavestenje;
+  id: number = 0;
+  tmp!: Obavestenje;
+  datum: string = "";
 
 
   dohvatiObavestenje() {
@@ -50,7 +50,7 @@ export class ZapizmenaformaComponent implements OnInit {
   potvrdi() {
     this.uredjivanje.datum = new Date(this.datum);
     this.podaci.azurirajObavestenje(this.uredjivanje.id, this.uredjivanje.naslov,
-     this.uredjivanje.fajl, this.uredjivanje.tekst, this.uredjivanje.datum).subscribe(ob=> {
+     this.uredjivanje.fajl, this.uredjivanje.tekst, this.uredjivanje.datum).subscribe((ob:any)=> {
        if (ob['poruka']=='OK') {
          alert('azurirano');
        }

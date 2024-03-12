@@ -99,7 +99,7 @@ dohvObavestenje(id: any) {
   const data = {
     id: id
   }
-  return this.http.post(`${this.uri}/dohvObavestenje`,data);
+  return this.http.post<Obavestenje>(`${this.uri}/dohvObavestenje`,data);
 }
 
 sortirajVestiPoDatumu(obavestenja: Obavestenje[]) : Obavestenje[] {
