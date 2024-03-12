@@ -25,7 +25,7 @@ export class PodaciService {
   }
 
   dohvSvaObavestenja() {
-    return this.http.get(`${this.uri}/dohvSvaObavestenja`);
+    return this.http.get<Obavestenje[]>(`${this.uri}/dohvSvaObavestenja`);
   }
 
   dohvSveStudente() {

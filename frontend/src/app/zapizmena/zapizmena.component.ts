@@ -20,18 +20,18 @@ export class ZapizmenaComponent implements OnInit {
 
 
   obavestenja: Obavestenje[] = [];
-  lista: Obavestenje[];
+  lista: Obavestenje[] = [];
 
-  tmp: Obavestenje;
-  uredjivanje: Obavestenje;
+  tmp!: Obavestenje;
+  uredjivanje!: Obavestenje;
 
-  naziv: string;
+  naziv: string ="";
 
-  datum: string;
-  id : string;
+  datum: string = "";
+  id : string = "";
 
 
-  
+
   dohvObavestenja() {
     this.podaci.dohvSvaObavestenja().subscribe((obavestenja: Obavestenje[])=>{
      if(obavestenja) {
@@ -71,7 +71,7 @@ export class ZapizmenaComponent implements OnInit {
    this.dohvObavestenja();
  }
 
- 
+
  logout() {
   localStorage.setItem('korisnik',"");
   localStorage.setItem('tipkor',"");
