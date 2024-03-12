@@ -35,6 +35,7 @@ export class ZapdodavanjeComponent implements OnInit {
   datumb!: Date;
 
   fileUpload!: File;
+  files!: FileList;
 
 
   dohvDrzi() {
@@ -81,8 +82,9 @@ export class ZapdodavanjeComponent implements OnInit {
     })
   }
 
-  handleFileInput(files: FileList) {
-    this.fileUpload = files.item(0)!;
+  handleFileInput(event: Event) {
+    this.files =  (event.target as HTMLInputElement).files!;
+    this.fileUpload = this.files.item(0)!;
   }
 
   logout() {

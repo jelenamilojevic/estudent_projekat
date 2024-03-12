@@ -31,25 +31,25 @@
     <div id="content_header"></div>
     <div id="site_content">
       <div id="banner">
-       
+
       </div>
 	  <div id="sidebar_container">
       <div class="sidebar">
-        <div class="sidebar_top"></div> 
+        <div class="sidebar_top"></div>
         <div class="sidebar_item">
         <h3>Izlogujte se: </h3>
        <form>
-         
+
            <input class="submit" type="submit" name="logout" value="Logout" (click)='logout()'/>
-      
+
        </form>
-          
+
         </div>
         <div class="sidebar_base"></div>
-      </div> 
-        
+      </div>
+
         <div class="sidebar">
-          <div class="sidebar_top"></div> 
+          <div class="sidebar_top"></div>
           <div class="sidebar_item">
             <h3>Korisni linkovi</h3>
             <ul>
@@ -60,51 +60,51 @@
           </div>
           <div class="sidebar_base"></div>
         </div>
-        
+
       </div>
       <div id="content">
-       
+
         <h1>Dodaj obaveštenje:</h1>
-       
+
         <form >
             <div class="form_settings">
                 <p><span>Naslov: </span>
-                    <input  type="text"  name="naslov" [(ngModel)]='obavestenje.naslov'/>   
+                    <input  type="text"  name="naslov" [(ngModel)]='obavestenje.naslov'/>
                 </p>
                 <p><span>Predmet</span>
                     <select name="naziv" [(ngModel)]='obavestenje.naziv'>
-                 
+
                       <option *ngFor='let d of drzi' value="{{d.naziv}}">{{d.naziv}}</option>
-                   
+
                     </select>
-                </p> 
+                </p>
                 <p><span>Fajl: </span>
-                  <input type="file"  name="fajl" [(ngModel)]='fileUpload' (change)="handleFileInput($event.target.files)"> 
+                  <input type="file"  name="fajl" [(ngModel)]='fileUpload' (change)="handleFileInput($event)">
                 </p>
                 <p><span>Tekst: </span>
-                    <textarea rows="8" cols="50"  type="text"  name="tekst" [(ngModel)]='obavestenje.tekst'></textarea>   
+                    <textarea rows="8" cols="50"  type="text"  name="tekst" [(ngModel)]='obavestenje.tekst'></textarea>
                 </p>
                 <p><span>Datum: </span>
-                    <input  type="date" name='datum' [(ngModel)] = 'datum'>  
+                    <input  type="date" name='datum' [(ngModel)] = 'datum'>
                 </p>
 
                 <p style="padding-top: 15px"><span>&nbsp;</span>
                     <input class="submit" type="submit" name="submit" value="Dodaj" (click)='dodaj()'/>
                 </p>
- 
+
             </div>
           </form>
-      
-        <div> 
-           
+
+        <div>
+
             <h1></h1>
             <h1></h1>
             <h1></h1>
             <h1></h1>
             <h1></h1>
         </div>
-          
-      
+
+
       </div>
     </div>
     <div id="content_footer"></div>
