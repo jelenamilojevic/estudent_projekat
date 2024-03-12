@@ -1,0 +1,160 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <title>ETF Beograd</title>
+  <meta name="description" content="website description" />
+  <meta name="keywords" content="website keywords, website keywords" />
+  <meta http-equiv="content-type" content="text/html; charset=windows-1252" />
+</head>
+
+<body>
+  <div id="main">
+    <div id="header">
+      <div id="logo">
+        <div id="logo_text">
+          <!-- class="logo_colour", allows you to change the colour of the text -->
+          <h1><a href="index.html">ETF <span class="logo_colour">Beograd</span></a></h1>
+          <h2>Katedra za računarsku tehniku i informatiku</h2>
+        </div>
+      </div>
+      <div id="menubar" *ngIf='gost'>
+        <ul id="menu">
+          <!-- put class="selected" in the li tag for the selected page - to highlight which page you're on -->
+          <li><a routerLink='/login'>Početna</a></li>
+          <li><a routerLink='/zaposleni'>Zaposleni</a></li>
+          <li><a routerLink='/obavestenja'>Obaveštenja</a></li>
+          <li><a routerLink='/osnovne'>Osnovne studije</a></li>
+          <li><a routerLink='/master'>Master studije</a></li>
+          <li><a routerLink='/projekti'>Projekti</a></li>
+          <li class="selected"><a routerLink='/nauka'>Nauka</a></li>
+          <li><a routerLink='/kontakt'>Kontakt</a></li>
+        </ul>
+      </div>
+      <div id="menubar" *ngIf='student'>
+        <ul id="menu">
+          <!-- put class="selected" in the li tag for the selected page - to highlight which page you're on -->
+          <li><a routerLink='/student'>Početna</a></li>
+          <li><a routerLink='/zaposleni'>Zaposleni</a></li>
+          <li><a routerLink='/obavestenja'>Obaveštenja</a></li>
+          <li><a routerLink='/osnovne'>Osnovne studije</a></li>
+          <li><a routerLink='/master'>Master studije</a></li>
+          <li><a routerLink='/projekti'>Projekti</a></li>
+          <li class="selected"><a routerLink='/nauka'>Nauka</a></li>
+          <li><a routerLink='/kontakt'>Kontakt</a></li>
+        </ul>
+      </div>
+    </div>
+    <div id="content_header"></div>
+    <div id="site_content">
+      <div id="banner"></div>
+	  <div id="sidebar_container">
+
+      <div class="sidebar" *ngIf='student'>
+        <div class="sidebar_top"></div> 
+        <div class="sidebar_item">
+        <h3>Izlogujte se: </h3>
+       <form>
+         
+           <input class="submit" type="submit" name="logout" value="Logout" (click)='logout()'/>
+      
+       </form>
+          
+        </div>
+        <div class="sidebar_base"></div>
+      </div> 
+
+      <div class="sidebar" *ngIf='gost'>
+        <div class="sidebar_top"></div>
+        <div class="sidebar_item">
+          <!-- insert your sidebar items here -->
+         
+          <h4>Na ovom linku se možete registrovati kao novi korisnik</h4>
+          
+          <a routerLink='/registracija'> <h3>Registracija</h3></a>
+        </div>
+        <div class="sidebar_base"></div>
+      </div>
+      
+      <div class="sidebar">
+        <div class="sidebar_top"></div>
+        <div class="sidebar_item">
+          <h3>Korisni linkovi</h3>
+          <ul>
+            <li><a href="http://rti.etf.bg.ac.rs/">RTI</a></li>
+            <li><a href="https://www.etf.bg.ac.rs/">ETF</a></li>
+            <li><a href="http://rti.etf.bg.ac.rs/rti/ir4pia/">PIA</a></li>
+          </ul>
+        </div>
+        <div class="sidebar_base"></div>
+      </div>
+        
+      </div>
+      <div id="content">
+     
+        <h1>Nauka</h1>
+        <hr>
+        <h2>Istrazivanja: </h2>
+        <ul>
+        <li>
+         <h3> <a href="https://www.etf.bg.ac.rs/sr/fakultet/zaposleni/drazen-draskovic-4502/">Detection of Linux malware using system tracers - an overview of solutions</a></h3>
+          <p>I. Vurdelja, I. Blažić, D. Drašković, B. Nikolić, Detection of Linux malware using system tracers - an overview of solutions, Proceedings of 7th International Conference on Electric, Electronic and Computing Engineering - IcETRAN 2020, 
+            ETRAN Society, Belgrade and University of Banja Luka - Faculty of Electrical Engineering, Belgrade, Serbia, Sep, 2020</p>
+           
+        </li>
+        <li>
+          <h3><a href="https://www.etf.bg.ac.rs/sr/fakultet/zaposleni/drazen-draskovic-4502/">Survey of machine learning application in transactional memory</a></h3> 
+          <p>I. Vurdelja, Ž. Šuštran, J. Protić, D. Drašković, Survey of machine learning application in transactional memory,
+             Proceedings of the 28th Telecommunications Forum - TELFOR 2020, IEEE, Belgrade, Serbia, Nov, 2020</p>
+           
+        </li>
+        <li>
+          <h3> <a href="https://www.etf.bg.ac.rs/sr/fakultet/zaposleni/drazen-draskovic-4502/">Complex Network Analysis of Women's Singles Tennis Matches</a></h3> 
+          <p>M. Kostić, D. Drašković, Complex Network Analysis of Women's Singles Tennis Matches, Proceedings of the 28th Telecommunications Forum - TELFOR 2020, IEEE, Belgrade, Serbia, Nov, 2020</p>
+          
+        </li>
+        <li>
+          <h3><a href="https://www.etf.bg.ac.rs/sr/fakultet/zaposleni/bosko-nikolic-2699/">A framework for automated dynamic malware analysis for Linux</a></h3> 
+          <p>I. Vurdelja, I. Blažić, D. Bojić, D. Drašković, A framework for automated dynamic malware analysis for Linux, Proceedings of the 28th Telecommunications Forum - TELFOR 2020, IEEE, Belgrade, Serbia, Nov, 2020</p>
+          
+        </li>
+        <li>
+          <h3> <a href="https://www.etf.bg.ac.rs/sr/fakultet/zaposleni/zaharije-radivojevic-2622/">Преглед симулатора погодних за држање наставе архитектуре и организације рачунара</a></h3> 
+          <p>Z. Radivojević, S. Stojanović, M. Cvetanović, Преглед симулатора погодних за држање наставе архитектуре и организације рачунара, Application of free software and open hardware PSSOH 2020, pp. 1 - 5,
+             University of Belgrade – School of Electrical Engineering, Belgrade, Serbia, Oct, 2020</p>
+          
+        </li>
+        </ul>
+        <h2>Projekti: </h2>
+
+        <ul>
+          <li>
+            <h3><a href="https://www.etf.bg.ac.rs/sr/fakultet/zaposleni/drazen-draskovic-4502/">Softversko inzenjerstvo i nove tehnologije u racunarstvu (SINTRA)</a> </h3>
+          </li>
+          <li>
+            <h3><a href="https://www.etf.bg.ac.rs/sr/fakultet/zaposleni/igor-tartalja-2657/">Information Security Services Education in Serbia</a></h3> 
+          </li>
+          <li>
+            <h3><a href="https://www.etf.bg.ac.rs/sr/fakultet/zaposleni/slavko-gajin-1415/">Просторни, еколошки, енергетски и друштвени аспекти развоја насеља и климатске промене-међусобни утицаји</a></h3> 
+          </li>
+          <li>
+            <h3> <a href="https://www.etf.bg.ac.rs/sr/fakultet/zaposleni/bosko-nikolic-2699/">Реализовање телекомуникационе инфраструктуре неопходне за функционисање РНИДС-а</a></h3> 
+          </li>
+          <li>
+            <h3><a href="https://www.etf.bg.ac.rs/sr/fakultet/zaposleni/slavko-gajin-1415/">Пословно информациони системи</a></h3> 
+          </li>
+          </ul>
+
+        
+      </div>
+    </div>
+    <div id="content_footer"></div>
+    <div id="footer">
+
+      <p>Elektrotehnički fakultet u Beogradu &copy; 2021 </p>
+    </div>
+  </div>
+</body>
+</html>
+
+

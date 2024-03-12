@@ -1,0 +1,170 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <title>ETF Beograd</title>
+  <meta name="description" content="website description" />
+  <meta name="keywords" content="website keywords, website keywords" />
+  <meta http-equiv="content-type" content="text/html; charset=windows-1252" />
+</head>
+
+<body>
+  <div id="main">
+    <div id="header">
+      <div id="logo">
+        <div id="logo_text">
+          <!-- class="logo_colour", allows you to change the colour of the text -->
+          <h1><a href="index.html">ETF <span class="logo_colour">Beograd</span></a></h1>
+          <h2>Katedra za računarsku tehniku i informatiku</h2>
+        </div>
+      </div>
+      <div id="menubar">
+        <ul id="menu">
+          <!-- put class="selected" in the li tag for the selected page - to highlight which page you're on -->
+        
+          <li><a routerLink='/admin'>Dodavanje</a></li>
+          <li class="selected"><a routerLink='/adminzap'>Zaposleni</a></li>
+          <li><a routerLink='/adminstud'>Studenti</a></li>
+          <li><a routerLink='/adminpred'>Predmeti</a></li>
+          <li><a routerLink='/adminplan'>Plan angazovanja</a></li>
+        </ul>
+      </div>
+    </div>
+    <div id="content_header"></div>
+    <div id="site_content">
+      <div id="banner">
+       
+      </div>
+	  <div id="sidebar_container">
+
+      <div class="sidebar">
+        <div class="sidebar_top"></div> 
+        <div class="sidebar_item">
+        <h3>Izlogujte se: </h3>
+       <form>
+         
+           <input class="submit" type="submit" name="logout" value="Logout" (click)='logout()'/>
+      
+       </form>
+          
+        </div>
+        <div class="sidebar_base"></div>
+      </div>  
+        
+        
+        <div class="sidebar">
+          <div class="sidebar_top"></div> 
+          <div class="sidebar_item">
+            <h3>Korisni linkovi</h3>
+            <ul>
+              <li><a href="http://rti.etf.bg.ac.rs/">RTI</a></li>
+              <li><a href="https://www.etf.bg.ac.rs/">ETF</a></li>
+              <li><a href="http://rti.etf.bg.ac.rs/rti/ir4pia/">PIA</a></li>
+            </ul>
+          </div>
+          <div class="sidebar_base"></div>
+        </div>
+        
+      </div>
+      <div id="content">
+       
+        <h1>Zaposleni </h1>
+        <hr>
+       <table style="width:100%; border-spacing:0;">
+        <tr>
+          <th>Ime i prezime</th>
+          <th>Zvanje</th>
+          <th>Uredi</th>
+          <th>Izbrisi</th>
+        </tr>
+        <tr *ngFor='let z of zaposleni'>
+          <td>{{z.ime}} {{z.prezime}}</td>
+          <td>{{z.zvanje}}</td>
+          <td><input type="submit" value="Uredi" (click)="uredi(z)"></td>
+          <td><input type="submit" value="Izbrisi" (click)="izbrisi(z)"></td>
+        </tr>
+      </table>
+
+      <div *ngIf='ur'>
+      <h1>Uredi zaposlenog {{ur.username}} :  </h1>
+       <hr>
+       <form>
+        <div class="form_settings">
+       
+          <p><span>Lozinka: </span>
+            <input type="password" name="password" [(ngModel)]='ur.password' />
+          </p>
+          <p><span>Ime: </span>
+            <input type="text"  name="ime" [(ngModel)]='ur.ime'> 
+          </p>
+          <p><span>Prezime: </span>
+            <input type="text"  name="prezime" [(ngModel)]='ur.prezime'> 
+          </p>
+          <p><span>Adresa: </span>
+            <input type="text"  name="adresa" [(ngModel)]='ur.adresa'> 
+          </p>
+          <p><span>Telefon: </span>
+            <input type="text"  name="telefon" [(ngModel)]='ur.telefon'> 
+          </p>
+          <p><span>Veb sajt: </span>
+            <input type="text"  name="vebsajt" [(ngModel)]='ur.vebsajt'> 
+          </p>
+          <p><span>Licni podaci: </span>
+            <input type="text"  name="podaci" [(ngModel)]='ur.podaci'> 
+          </p>
+          <p><span>Zvanje</span>
+            <select name="zvanje" [(ngModel)]='ur.zvanje'>
+              <option value="redovni profesor">Redovni profesor</option>
+              <option value="vanredni profesor">Vanredni profesor</option>
+              <option value="docent">Docent</option>
+              <option value="asistent">Asistent</option>
+              <option value="saradnik u nastavi">Saradnik u nastavi</option>
+              <option value="istrazivac">Istrazivac</option>
+              <option value="laboratorijski inzenjer">Laboratorijski inzenjer</option>
+              <option value="laboratorijski tehnicar">Laboratorijski tehnicar</option>
+            </select>
+          </p>
+          <p><span>Kabinet: </span>
+            <input type="text"  name="kabinet" [(ngModel)]='ur.kabinet'> 
+          </p>
+          <p><span>Status</span>
+            <select name="status" [(ngModel)]='ur.status'>
+              <option value="aktivan">Aktivan</option>
+              <option value="neaktivan">Neaktivan</option>
+            </select>
+          </p>
+          <p><span>Slika: </span>
+            <input type="text"  name="slika" [(ngModel)]='ur.slika'> 
+          </p>
+          <p style="padding-top: 15px"><span>&nbsp;</span>
+            <input class="submit" type="submit" name="submit" value="Uredi" (click)='urediZap()'/>
+        </p>
+        </div>
+      </form>
+        </div>
+
+        <div>
+          
+            <h1></h1>
+            <h1></h1>
+            <h1></h1>
+            <h1></h1>
+            <h1></h1>
+            <h1></h1>
+        </div>
+
+        
+      </div>
+    </div>
+    <div id="content_footer"></div>
+    <div id="footer">
+
+      <p>Elektrotehnički fakultet u Beogradu &copy; 2021 </p>
+    </div>
+  </div>
+</body>
+</html>
+
+
+
+

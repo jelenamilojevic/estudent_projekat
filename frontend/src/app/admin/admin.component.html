@@ -1,0 +1,251 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <title>ETF Beograd</title>
+  <meta name="description" content="website description" />
+  <meta name="keywords" content="website keywords, website keywords" />
+  <meta http-equiv="content-type" content="text/html; charset=windows-1252" />
+</head>
+
+<body>
+  <div id="main">
+    <div id="header">
+      <div id="logo">
+        <div id="logo_text">
+          <!-- class="logo_colour", allows you to change the colour of the text -->
+          <h1><a href="index.html">ETF <span class="logo_colour">Beograd</span></a></h1>
+          <h2>Katedra za računarsku tehniku i informatiku</h2>
+        </div>
+      </div>
+      <div id="menubar">
+        <ul id="menu">
+          <!-- put class="selected" in the li tag for the selected page - to highlight which page you're on -->
+          <li class="selected"><a routerLink='/admin'>Pocetna</a></li>
+          <li><a routerLink='/adminzap'>Zaposleni</a></li>
+          <li><a routerLink='/adminstud'>Studenti</a></li>
+          <li><a routerLink='/adminpred'>Predmeti</a></li>
+          <li><a routerLink='/adminplan'>Plan angazovanja</a></li>
+        </ul>
+      </div>
+    </div>
+    <div id="content_header"></div>
+    <div id="site_content">
+      <div id="banner">
+       
+      </div>
+	  <div id="sidebar_container">
+
+      <div class="sidebar">
+          <div class="sidebar_top"></div> 
+          <div class="sidebar_item">
+           <a routerLink='/promenalozinke'> <h3>Promena lozinke</h3></a>
+            
+          </div>
+          <div class="sidebar_base"></div>
+        </div>  
+
+        <div class="sidebar">
+          <div class="sidebar_top"></div> 
+          <div class="sidebar_item">
+          <h3>Izlogujte se: </h3>
+         <form>
+           
+             <input class="submit" type="submit" name="logout" value="Logout" (click)='logout()'/>
+        
+         </form>
+            
+          </div>
+          <div class="sidebar_base"></div>
+        </div>  
+        
+        <div class="sidebar">
+          <div class="sidebar_top"></div> 
+          <div class="sidebar_item">
+            <h3>Korisni linkovi</h3>
+            <ul>
+              <li><a href="http://rti.etf.bg.ac.rs/">RTI</a></li>
+              <li><a href="https://www.etf.bg.ac.rs/">ETF</a></li>
+              <li><a href="http://rti.etf.bg.ac.rs/rti/ir4pia/">PIA</a></li>
+            </ul>
+          </div>
+          <div class="sidebar_base"></div>
+        </div>
+        
+      </div>
+      <div id="content">
+       
+        <h1>Dodaj studenta: </h1>
+        <hr>
+        <form>
+         <div class="form_settings">
+           <p><span>Korisnicko ime: </span>
+               <input type="text"  name="username" [(ngModel)]='username'> 
+           </p>
+           <p><span>Lozinka: </span>
+             <input type="password" name="password" [(ngModel)]='password' />
+           </p>
+           <p><span>Ime: </span>
+             <input type="text"  name="ime" [(ngModel)]='ime'> 
+           </p>
+           <p><span>Prezime: </span>
+             <input type="text"  name="prezime" [(ngModel)]='prezime'> 
+           </p>
+           <p><span>Indeks: </span>
+             <input type="text"  name="indeks" [(ngModel)]='indeks'> 
+           </p>
+           <p><span>Tip</span>
+             <select name="tip" [(ngModel)]='tip'>
+               <option value="d">osnovne (d)</option>
+               <option value="m">master (m)</option>
+               <option value="p">doktorske (p)</option>
+             </select>
+           </p>
+           <p><span>Status</span>
+             <select name="status" [(ngModel)]='status'>
+               <option value="aktivan">Aktivan</option>
+               <option value="neaktivan">Neaktivan</option>
+             </select>
+           </p>
+           <p style="padding-top: 15px"><span>&nbsp;</span>
+             <input class="submit" type="submit" name="submit" value="Dodaj" (click)='registruj()'/>
+         </p>
+         </div>
+       </form>
+       <br/> <br/> 
+
+       <h1>Dodaj zaposlenog: </h1>
+       <hr>
+       <form>
+        <div class="form_settings">
+          <p><span>Korisnicko ime: </span>
+              <input type="text"  name="username" [(ngModel)]='zapuser'> 
+          </p>
+          <p><span>Lozinka: </span>
+            <input type="password" name="password" [(ngModel)]='zappass' />
+          </p>
+          <p><span>Ime: </span>
+            <input type="text"  name="ime" [(ngModel)]='zapime'> 
+          </p>
+          <p><span>Prezime: </span>
+            <input type="text"  name="prezime" [(ngModel)]='zapprez'> 
+          </p>
+          <p><span>Adresa: </span>
+            <input type="text"  name="adresa" [(ngModel)]='zapadr'> 
+          </p>
+          <p><span>Telefon: </span>
+            <input type="text"  name="telefon" [(ngModel)]='zaptel'> 
+          </p>
+          <p><span>Veb sajt: </span>
+            <input type="text"  name="vebsajt" [(ngModel)]='zapveb'> 
+          </p>
+          <p><span>Licni podaci: </span>
+            <input type="text"  name="podaci" [(ngModel)]='zappod'> 
+          </p>
+          <p><span>Zvanje</span>
+            <select name="tip" [(ngModel)]='zapzva'>
+              <option value="redovni profesor">Redovni profesor</option>
+              <option value="vanredni profesor">Vanredni profesor</option>
+              <option value="docent">Docent</option>
+              <option value="asistent">Asistent</option>
+              <option value="saradnik u nastavi">Saradnik u nastavi</option>
+              <option value="istrazivac">Istrazivac</option>
+              <option value="laboratorijski inzenjer">Laboratorijski inzenjer</option>
+              <option value="laboratorijski tehnicar">Laboratorijski tehnicar</option>
+            </select>
+          </p>
+          <p><span>Kabinet: </span>
+            <input type="text"  name="kabinet" [(ngModel)]='zapkab'> 
+          </p>
+          <p><span>Status</span>
+            <select name="status" [(ngModel)]='zapsta'>
+              <option value="aktivan">Aktivan</option>
+              <option value="neaktivan">Neaktivan</option>
+            </select>
+          </p>
+          <p><span>Slika: </span>
+            <input type="file"  name="slika" [(ngModel)]='image' (change)="handleFileInput($event.target.files)"> 
+          </p>
+          <p style="padding-top: 15px"><span>&nbsp;</span>
+            <input class="submit" type="submit" name="submit" value="Dodaj" (click)='registrujZap()'/>
+        </p>
+        </div>
+      </form>
+
+      <br/> <br/>
+      <h1>Dodaj predmet: </h1>
+      <hr>
+
+      <form >
+        <div class="form_settings">
+          <p><span>Naziv: </span>
+            <input  type="text"  name="naziv" [(ngModel)]='ur.naziv'/>   
+          </p>
+            <p><span>Sifra: </span>
+                <input  type="text"  name="sifra" [(ngModel)]='ur.sifra'/>   
+            </p>
+            <p><span>Status</span>
+                <select name="status" [(ngModel)]='ur.tip'>
+                  <option value="obavezni">Obavezni</option>
+                  <option value="izborni">Izborni</option>
+                </select>
+            </p>
+            <p><span>Fond: </span>
+                <input  type="text"  name="fond" [(ngModel)]='ur.fond'/>   
+            </p>
+            <p><span>ESPB: </span>
+                <input  type="text"  name="espb" [(ngModel)]='ur.espb'/>   
+            </p>
+            <p><span>Cilj: </span>
+                <textarea rows="8" cols="50"  type="text"  name="cilj" [(ngModel)]='ur.cilj'></textarea>   
+            </p>
+            <p><span>Ishod: </span>
+                <textarea rows="8" cols="50"  type="text"  name="ishod" [(ngModel)]='ur.ishod'></textarea>   
+            </p>
+            <p><span>Predavanja: </span>
+                <input  type="text"  name="predavanja" [(ngModel)]='ur.predavanja'/>   
+            </p>
+            <p><span>Vezbe: </span>
+                <input  type="text"  name="vezbe" [(ngModel)]='ur.vezbe'/>   
+            </p>
+            <p><span>Lab Vezbe</span>
+                <select name="labvezbe" [(ngModel)]='ur.labvezbe'>
+                  <option value="ima">Ima</option>
+                  <option value="nema">Nema</option>
+                </select>
+            </p>
+            <p><span>Komentar: </span>
+                <input  type="text"  name="komentar" [(ngModel)]='ur.komentar'/>   
+            </p>
+
+            <p style="padding-top: 15px"><span>&nbsp;</span>
+                <input class="submit" type="submit" name="submit" value="Dodaj" (click)='dodajPred()'/>
+            </p>
+        </div>
+      </form>
+ 
+
+        <div>
+          
+            <h1></h1>
+            <h1></h1>
+            <h1></h1>
+            <h1></h1>
+            <h1></h1>
+            <h1></h1>
+        </div>
+
+        
+      </div>
+    </div>
+    <div id="content_footer"></div>
+    <div id="footer">
+
+      <p>Elektrotehnički fakultet u Beogradu &copy; 2021 </p>
+    </div>
+  </div>
+</body>
+</html>
+
+
+

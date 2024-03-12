@@ -1,0 +1,106 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <title>ETF Beograd</title>
+  <meta name="description" content="website description" />
+  <meta name="keywords" content="website keywords, website keywords" />
+  <meta http-equiv="content-type" content="text/html; charset=windows-1252" />
+</head>
+
+<body>
+  <div id="main">
+    <div id="header">
+      <div id="logo">
+        <div id="logo_text">
+          <!-- class="logo_colour", allows you to change the colour of the text -->
+          <h1><a href="index.html">ETF <span class="logo_colour">Beograd</span></a></h1>
+          <h2>Katedra za računarsku tehniku i informatiku</h2>
+        </div>
+      </div>
+      <div id="menubar">
+        <ul id="menu">
+          <!-- put class="selected" in the li tag for the selected page - to highlight which page you're on -->
+          <li><a routerLink='/predmeti'>Obaveštenja</a></li>
+          <li><a routerLink='/predinfo'>Informacije</a></li>
+          <li><a routerLink='/predavanja'>Predavanja</a></li>
+          <li><a routerLink='/predvezbe'>Vežbe</a></li>
+          <li class="selected"><a routerLink='/predpitanja'>Ispitna pitanja</a></li>
+          <li><a routerLink='/predlab'>Laboratorija</a></li>
+          <li><a routerLink='/predprojekat'>Projekat</a></li>
+        </ul>
+      </div>
+    </div>
+    <div id="content_header"></div>
+    <div id="site_content">
+      <div id="banner">
+       
+      </div>
+	  <div id="sidebar_container">
+
+      <div class="sidebar">
+        <div class="sidebar_top"></div> 
+        <div class="sidebar_item">
+        <h3>Izlogujte se: </h3>
+       <form>
+         
+           <input class="submit" type="submit" name="logout" value="Logout" (click)='logout()'/>
+      
+       </form>
+          
+        </div>
+        <div class="sidebar_base"></div>
+      </div> 
+    
+    
+        <div class="sidebar">
+          <div class="sidebar_top"></div>
+          <div class="sidebar_item">
+            <!-- insert your sidebar items here -->
+            <h4>Nazad na STUDENT</h4>
+            
+            <a routerLink='/student'> <h3>Nazad</h3></a>
+          </div>
+          <div class="sidebar_base"></div>
+        </div>
+        <div class="sidebar">
+          <div class="sidebar_top"></div> 
+          <div class="sidebar_item">
+            <h3>Korisni linkovi</h3>
+            <ul>
+              <li><a href="http://rti.etf.bg.ac.rs/">RTI</a></li>
+              <li><a href="https://www.etf.bg.ac.rs/">ETF</a></li>
+              <li><a href="http://rti.etf.bg.ac.rs/rti/ir4pia/">PIA</a></li>
+            </ul>
+          </div>
+          <div class="sidebar_base"></div>
+        </div>
+        
+      </div>
+      <div id="content">
+      <div> <h1>Ispitna pitanja</h1></div>
+      <hr>
+      <div *ngFor='let l of lista'>
+        <h2>{{l.naslov}}</h2>
+        <h3>{{l.datum.getFullYear()}}-{{l.datum.getMonth()+1}}-{{l.datum.getDate()}}</h3>
+         <h3><a href="../../assets/ispitna/{{l.fajl}}">{{l.fajl}}</a></h3>
+         <hr>
+    </div>
+  
+   
+     
+      </div>
+    </div>
+    <div id="content_footer"></div>
+    <div id="footer">
+
+      <p>Elektrotehnički fakultet u Beogradu &copy; 2021 </p>
+    </div>
+  </div>
+</body>
+</html>
+
+
+
+
+

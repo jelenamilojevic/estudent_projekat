@@ -1,0 +1,113 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <title>ETF Beograd</title>
+  <meta name="description" content="website description" />
+  <meta name="keywords" content="website keywords, website keywords" />
+  <meta http-equiv="content-type" content="text/html; charset=windows-1252" />
+</head>
+
+<body>
+  <div id="main">
+    <div id="header">
+      <div id="logo">
+        <div id="logo_text">
+          <!-- class="logo_colour", allows you to change the colour of the text -->
+          <h1><a href="index.html">ETF <span class="logo_colour">Beograd</span></a></h1>
+          <h2>Katedra za računarsku tehniku i informatiku</h2>
+        </div>
+      </div>
+      <div id="menubar">
+        <ul id="menu">
+          <!-- put class="selected" in the li tag for the selected page - to highlight which page you're on -->
+          <li><a routerLink='/predmeti'>Obaveštenja</a></li>
+          <li class="selected"><a routerLink='/predinfo'>Informacije</a></li>
+          <li><a routerLink='/predavanja'>Predavanja</a></li>
+          <li><a routerLink='/predvezbe'>Vežbe</a></li>
+          <li><a routerLink='/predpitanja'>Ispitna pitanja</a></li>
+          <li><a routerLink='/predlab'>Laboratorija</a></li>
+          <li><a routerLink='/predprojekat'>Projekat</a></li>
+        </ul>
+      </div>
+    </div>
+    <div id="content_header"></div>
+    <div id="site_content">
+      <div id="banner">
+       
+      </div>
+	  <div id="sidebar_container">
+      <div class="sidebar">
+        <div class="sidebar_top"></div> 
+        <div class="sidebar_item">
+        <h3>Izlogujte se: </h3>
+       <form>
+         
+           <input class="submit" type="submit" name="logout" value="Logout" (click)='logout()'/>
+      
+       </form>
+          
+        </div>
+        <div class="sidebar_base"></div>
+      </div> 
+        <div class="sidebar">
+          <div class="sidebar_top"></div>
+          <div class="sidebar_item">
+            <!-- insert your sidebar items here -->
+           
+            <h4>Nazad na STUDENT</h4>
+            
+            <a routerLink='/student'> <h3>Nazad</h3></a>
+          </div>
+          <div class="sidebar_base"></div>
+        </div>
+        <div class="sidebar">
+          <div class="sidebar_top"></div> 
+          <div class="sidebar_item">
+            <h3>Korisni linkovi</h3>
+            <ul>
+              <li><a href="http://rti.etf.bg.ac.rs/">RTI</a></li>
+              <li><a href="https://www.etf.bg.ac.rs/">ETF</a></li>
+              <li><a href="http://rti.etf.bg.ac.rs/rti/ir4pia/">PIA</a></li>
+            </ul>
+          </div>
+          <div class="sidebar_base"></div>
+        </div>
+        
+      </div>
+      <div id="content">
+
+          <div *ngIf="tmp">
+            <h1>Podaci o predmetu</h1>
+  
+            <div *ngIf="tmp.naziv"><h3>Naziv: {{tmp.naziv}}</h3></div>
+            <div *ngIf="tmp.tip"><h3>Tip: {{tmp.tip}}</h3></div>
+            <div *ngIf="tmp.sifra"><h3>Sifra: {{tmp.sifra}}</h3></div>
+            <div *ngIf="tmp.fond"><h3>Fond: {{tmp.fond}}</h3></div>
+            <div *ngIf="tmp.espb"><h3>ESPB: {{tmp.espb}}</h3></div>
+            <div *ngIf="tmp.cilj"><h3>Cilj: {{tmp.cilj}}</h3></div>
+            <div *ngIf="tmp.ishod"><h3>Ishod: {{tmp.ishod}}</h3></div>
+            <div *ngIf="tmp.predavanja"><h3>Predavanja: {{tmp.predavanja}}</h3></div>
+            <div *ngIf="tmp.vezbe"><h3>Vezbe: {{tmp.vezbe}}</h3></div>
+            <div *ngIf="tmp.labvezbe"><h3>Lab vezbe: {{tmp.labvezbe}}</h3></div>
+            <div *ngIf="tmp.komentar"><h3>Komentar:</h3> <h5>{{tmp.komentar}}</h5></div>
+            
+          </div>
+          <div *ngIf = 'sviZap'><h3>Nastavnici: </h3></div>
+          <div *ngFor='let s of sviZap'>
+           <h3>{{s.ime}} {{s.prezime}}</h3> <input type="submit" value="Detalji" (click)="detalji(s.username)">
+          </div>
+     
+      </div>
+    </div>
+    <div id="content_footer"></div>
+    <div id="footer">
+
+      <p>Elektrotehnički fakultet u Beogradu &copy; 2021 </p>
+    </div>
+  </div>
+</body>
+</html>
+
+
+

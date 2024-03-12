@@ -1,0 +1,168 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <title>ETF Beograd</title>
+  <meta name="description" content="website description" />
+  <meta name="keywords" content="website keywords, website keywords" />
+  <meta http-equiv="content-type" content="text/html; charset=windows-1252" />
+</head>
+
+<body>
+  <div id="main">
+    <div id="header">
+      <div id="logo">
+        <div id="logo_text">
+          <!-- class="logo_colour", allows you to change the colour of the text -->
+          <h1><a href="index.html">ETF <span class="logo_colour">Beograd</span></a></h1>
+          <h2>Katedra za računarsku tehniku i informatiku</h2>
+        </div>
+      </div>
+      <div id="menubar" *ngIf='gost'>
+        <ul id="menu">
+          <!-- put class="selected" in the li tag for the selected page - to highlight which page you're on -->
+          <li><a routerLink='/login'>Početna</a></li>
+          <li><a routerLink='/zaposleni'>Zaposleni</a></li>
+          <li><a routerLink='/obavestenja'>Obaveštenja</a></li>
+          <li><a routerLink='/osnovne'>Osnovne studije</a></li>
+          <li><a routerLink='/master'>Master studije</a></li>
+          <li class="selected"><a routerLink='/projekti'>Projekti</a></li>
+          <li><a routerLink='/nauka'>Nauka</a></li>
+          <li><a routerLink='/kontakt'>Kontakt</a></li>
+        </ul>
+      </div>
+      <div id="menubar" *ngIf='student'>
+        <ul id="menu">
+          <!-- put class="selected" in the li tag for the selected page - to highlight which page you're on -->
+          <li><a routerLink='/student'>Početna</a></li>
+          <li><a routerLink='/zaposleni'>Zaposleni</a></li>
+          <li><a routerLink='/obavestenja'>Obaveštenja</a></li>
+          <li><a routerLink='/osnovne'>Osnovne studije</a></li>
+          <li><a routerLink='/master'>Master studije</a></li>
+          <li class="selected"><a routerLink='/projekti'>Projekti</a></li>
+          <li><a routerLink='/nauka'>Nauka</a></li>
+          <li><a routerLink='/kontakt'>Kontakt</a></li>
+        </ul>
+      </div>
+    </div>
+    <div id="content_header"></div>
+    <div id="site_content">
+      <div id="banner"></div>
+	  <div id="sidebar_container">
+
+      <div class="sidebar" *ngIf='student'>
+        <div class="sidebar_top"></div> 
+        <div class="sidebar_item">
+        <h3>Izlogujte se: </h3>
+       <form>
+         
+           <input class="submit" type="submit" name="logout" value="Logout" (click)='logout()'/>
+      
+       </form>
+          
+        </div>
+        <div class="sidebar_base"></div>
+      </div> 
+
+      <div class="sidebar" *ngIf='gost'>
+        <div class="sidebar_top"></div>
+        <div class="sidebar_item">
+          <!-- insert your sidebar items here -->
+         
+          <h4>Na ovom linku se možete registrovati kao novi korisnik</h4>
+          
+          <a routerLink='/registracija'> <h3>Registracija</h3></a>
+        </div>
+        <div class="sidebar_base"></div>
+      </div>
+
+        
+      <div class="sidebar">
+        <div class="sidebar_top"></div>
+        <div class="sidebar_item">
+          <h3>Korisni linkovi</h3>
+          <ul>
+            <li><a href="http://rti.etf.bg.ac.rs/">RTI</a></li>
+            <li><a href="https://www.etf.bg.ac.rs/">ETF</a></li>
+            <li><a href="http://rti.etf.bg.ac.rs/rti/ir4pia/">PIA</a></li>
+          </ul>
+        </div>
+        <div class="sidebar_base"></div>
+      </div>
+      </div>
+      <div id="content">
+     <h1>Projekti</h1>  
+       <h2>Tema: Мобилна апликација за праћење информација о поридичном стаблу</h2>
+       
+       <div>
+         <p>Потребно је реализовати мобилну апликацију која корисницима омогућава унос подата о породичном стаблу.
+            Особа преко мобилног уређаја уноси податке којие се односе на особе. Ти подаци садрже тестуалне записе,
+             слике видео записе. Апликација треба да омогући повезивање особа, група особа, догађаја и места. 
+             Записи се могу пратити у виду временске осе или у виду стабла. 
+             Апликација податке може чувати локално и на интернету.
+              Могуће је спајати записе које су уносили различите особе.
+               Могуће је претраживати садржај по различитим критеријумима.
+              
+          </p>
+        <h3>Oblast: Програмирање мобилних уређаја </h3>
+        <h3>Kontakt: др Захарије Радивојевић, ванредни професор</h3>
+            
+         
+       </div>
+       <hr>
+       <h2>Tema: Имплементација електронског водича за реаговање у ванредним ситуацијама</h2>
+         <p>
+          Имплементација апликације која ће представљати електронску верзију водича за реаговање
+           у ванредним ситуацијама са опасним материјама. Имплементација веб или десктоп верзије. 
+         </p>
+         <h3>Oblast: Програмирање, базе података</h3>
+         <h3>Kontakt: др Марко Мишић, доцент</h3>
+       <hr>
+       <h2>Tema: Алгоритми за детекцију комуна (заједница) у социјалним мрежама и графовима</h2>
+        <p>  Детекција комуна у графовима и социјалним мрежама. 
+          Имплементација метода попут label propagation, Girvan-Newman алгоритма и сл. 
+          Могућа паралелизација неком од доступних метода.  
+        </p>
+       <h3>Oblast: Анализа социјалних мрежа, алгоритми и структуре података </h3> 
+       <h3>Kontakt: др Марко Мишић, доцент</h3>
+
+       <hr>
+       <h2>Tema: Бесконачни екран</h2>
+       <p> Потребно је развити мобилну апликацију која треба да повеже већи број мобилних уређаја који се налазе у истом простору како би формирали један велики екран. На оваквом екрану би сваки уређај приказивао део слике/филма а сви ови уређаји би се понашали како један велики екран. Апликација би могла а се користи на спортским манифестацијама (стадиони, хале), концертима и сличним манифестацијама на којима се окупља већи број корисника.
+          Потребно је омогућити унос распоред где се који уређај у датом простору налази.   
+       </p>
+
+       <h3>Oblast: Програмирање мобилних уређаја</h3>
+        <h3>Kontakt: др Захарије Радивојевић, ванредни професор</h3>
+
+       <hr>
+       <h2>Tema: Мобилна апликација за проширену реалност у музеју</h2>
+       <p>  Потребно је проширити постојећу мобилну апликацију која у зависности од позиције и кретања корисника (у отвореном или затвореном простору) приказује различит садржај. Када апликација одреди локацију корисника проширује поглед кроз мобилни уређај додавањем предефинисаног садржаја. Намена апликације је да омогући посетиоцима музеја, 
+         стадиона и сличних објеката да добију додатне информације о месту где се корисник налази и да употпуни доживљај датог простора.  
+       </p>
+
+       <h3>Oblast: Програмирање мобилних уређаја</h3>
+       <h3>Kontakt: др Захарије Радивојевић, ванредни професор</h3>
+       <hr>
+       <h2>Tema: Homomorfna enkripcija</h2>
+
+       <p>   Rad u kojem će student analizirati principe funkcionisanja homomorfnih algoritama enkripcije, koji su u poslednje vreme postali aktuelni kao rešenje za realizaciju bezbednih aplikacija na u klaud okruženjima i posebno matematičkog izračunavanja nad kriptovanim podacima. 
+         Analiza i testiranje postojećih algoritama i rešenja. 
+       </p>
+
+       <h3>Oblast: Zaštita podataka</h3>
+       <h3>Kontakt: dr Pavle Vuletić, vanredni profesor</h3>
+       <hr>
+
+
+      </div>
+    </div>
+    <div id="content_footer"></div>
+    <div id="footer">
+
+      <p>Elektrotehnički fakultet u Beogradu &copy; 2021 </p>
+    </div>
+  </div>
+</body>
+</html>
+

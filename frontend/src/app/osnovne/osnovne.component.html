@@ -1,0 +1,166 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <title>ETF Beograd</title>
+  <meta name="description" content="website description" />
+  <meta name="keywords" content="website keywords, website keywords" />
+  <meta http-equiv="content-type" content="text/html; charset=windows-1252" />
+</head>
+
+<body>
+  <div id="main">
+    <div id="header">
+      <div id="logo">
+        <div id="logo_text">
+          <!-- class="logo_colour", allows you to change the colour of the text -->
+          <h1><a href="index.html">ETF <span class="logo_colour">Beograd</span></a></h1>
+          <h2>Katedra za računarsku tehniku i informatiku</h2>
+        </div>
+      </div>
+      <div id="menubar" *ngIf='gost'>
+        <ul id="menu">
+          <!-- put class="selected" in the li tag for the selected page - to highlight which page you're on -->
+          <li><a routerLink='/login'>Početna</a></li>
+          <li><a routerLink='/zaposleni'>Zaposleni</a></li>
+          <li><a routerLink='/obavestenja'>Obaveštenja</a></li>
+          <li class="selected"><a routerLink='/osnovne'>Osnovne studije</a></li>
+          <li><a routerLink='/master'>Master studije</a></li>
+          <li><a routerLink='/projekti'>Projekti</a></li>
+          <li><a routerLink='/nauka'>Nauka</a></li>
+          <li><a routerLink='/kontakt'>Kontakt</a></li>
+        </ul>
+      </div>
+      <div id="menubar" *ngIf='student'>
+        <ul id="menu">
+          <!-- put class="selected" in the li tag for the selected page - to highlight which page you're on -->
+          <li><a routerLink='/student'>Početna</a></li>
+          <li><a routerLink='/zaposleni'>Zaposleni</a></li>
+          <li><a routerLink='/obavestenja'>Obaveštenja</a></li>
+          <li class="selected"><a routerLink='/osnovne'>Osnovne studije</a></li>
+          <li><a routerLink='/master'>Master studije</a></li>
+          <li><a routerLink='/projekti'>Projekti</a></li>
+          <li><a routerLink='/nauka'>Nauka</a></li>
+          <li><a routerLink='/kontakt'>Kontakt</a></li>
+        </ul>
+      </div>
+    </div>
+    <div id="content_header"></div>
+    <div id="site_content">
+      <div id="banner"></div>
+	  <div id="sidebar_container">
+      <div class="sidebar" *ngIf='student'>
+        <div class="sidebar_top"></div> 
+        <div class="sidebar_item">
+        <h3>Izlogujte se: </h3>
+       <form>
+         
+           <input class="submit" type="submit" name="logout" value="Logout" (click)='logout()'/>
+      
+       </form>
+          
+        </div>
+        <div class="sidebar_base"></div>
+      </div> 
+      
+      <div class="sidebar" *ngIf='gost'>
+        <div class="sidebar_top"></div>
+        <div class="sidebar_item">
+          <!-- insert your sidebar items here -->
+         
+          <h4>Na ovom linku se možete registrovati kao novi korisnik</h4>
+          
+          <a routerLink='/registracija'> <h3>Registracija</h3></a>
+        </div>
+        <div class="sidebar_base"></div>
+      </div>
+      <div class="sidebar">
+        <div class="sidebar_top"></div> 
+        <div class="sidebar_item">
+          <h3>Spisak predmeta</h3>
+          <ul>
+            <li>
+              <h3>Osnovne akademske studije SI</h3> 
+              <form >
+                    <input class="submit" type="submit"  value="Prikaži" (click)='prikazi()'/>
+                   
+              </form>
+            </li>
+            <li>
+              <h3>Osnovne akademske studije RTI</h3> 
+              <form >
+                    <input class="submit" type="submit"  value="Prikaži" (click)='prikaziRti()'/>
+                   
+              </form>
+            </li>
+            <li>
+              <h3>Ostali smerovi</h3> 
+              <form >
+                    <input class="submit" type="submit"  value="Prikaži" (click)='prikaziOstali()'/>
+                   
+              </form>
+            </li>
+          </ul>
+        </div>
+        <div class="sidebar_base"></div>
+      </div>
+        
+      </div>
+      <div id="content">
+          <h1>Osnovne akademske studije</h1>
+         <hr>
+         <h2>Trajanje studija</h2>
+         <p>Od 2003. godine na Elektrotehničkom fakultetu je uveden novi nastavni plan i program, po kome osnovne studije traju 
+           4 godine, odnosno osam semestara. To znači da se fakultet opredelio za šemu 4+1, po kojoj se posle 4 godine studija stiče 
+           titula <i>diplomirani inženjer elektrotehnike i računarstva</i>, a posle još jedne dodatne godine titula
+           <i>diplomirani inženjer - master elektrotehnike i računarstva</i> u skladu sa novim Zakonom o visokom obrazovanju i principima 
+           Bolonjske deklaracije. Svaki semestar nosi 30 ECTS bodova, a dva semestra čine jednu školsku godinu.
+         </p>
+
+         <h2>Nastava i ispiti</h2>
+         <p>
+           Nastava se izvodi po predmetima, koji po novom nastavnom planu moraju biti jednosemestralni. Postoje i praktikumi, koji 
+           predstavljaju predmete manjeg obima i pretežno su orijentisani na praktičan rad studenata ili produbljivanje znanja iz
+           osnovnih predmeta. Kod svih predmeta predispitne aktivnosti studenata, kao što su kolokvijumi i domaći zadaci, vrše se 
+           tokom semestra u kom se izvodi nastava iz predmeta. 
+         </p>
+
+         <h2>Putanje studiranja</h2>
+         <p>
+           Da bi uspešno kompletirao osnovne studije student mora da odabere putanju studiranja. Svaka grana putanje predstavlja 
+           jedan odsek ili smer. Studenti mogu izabrati sledeće putanje: 
+         </p>
+         <p>1) Pri uspisu student bira Elektrotehniku i računarstvo ili  Softversko inženjerstvo.</p>
+         <p>2) Nakon upisa, na kraju drugog semestra studenti modula Elektrotehnika i računarstvo biraju jedan od sledećih modula:</p>
+
+         <ul >
+          <li>Elektronika</li>
+          <li>Energetika</li>
+          <li>Računarska tehnika i informatika</li>
+          <li>Signali i sistemi</li>
+          <li>Telekomunikacije i informacione tehnologije</li>
+          <li>Fizička elektronika</li>
+        </ul>
+
+        <h2>Stručna praksa</h2>
+        <p>Stručna praksa predstavlja oblik nastave u kome studenti stiču šira praktična znanja, veštine i sposobnosti.
+          Praksa se po pravilu obavlja u osmom semestru i obavezan je deo studijeskog programa.
+        </p>
+        <h2>Završni rad</h2>  
+        <p>Završni rad je samostalni rad studenta iz određene teme, čija se izrada i odbrana rade na kraju studijskog programa, kada student
+          položi sve ispite i ispuni sve obaveze predviđene studijskim programom. Završni rad mora biti iz oblasti izbornog područja  - modula
+          koji je student upisao.
+        </p>
+            
+      </div>
+    </div>
+    <div id="content_footer"></div>
+    <div id="footer">
+
+      <p>Elektrotehnički fakultet u Beogradu &copy; 2021 </p>
+    </div>
+  </div>
+</body>
+</html>
+
+
