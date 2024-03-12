@@ -19,7 +19,7 @@ export class PromenalozinkeComponent implements OnInit {
   ngOnInit(): void {
     this.dohvatiKorisnika();
 
-    this.korisnik = localStorage.getItem('tipkor');
+    this.korisnik = localStorage.getItem('tipkor')!;
     if (this.korisnik == "student") {
       this.student = true;
 
@@ -29,7 +29,7 @@ export class PromenalozinkeComponent implements OnInit {
 
     } else if (this.korisnik == "zaposleni"){
       this.zaposleni = true;
-     
+
       this.student = false;
       this.gost = false;
       this.admin = false;
@@ -49,19 +49,19 @@ export class PromenalozinkeComponent implements OnInit {
     }
   }
 
-  stara: string;
-  nova: string;
-  potvrda: string;
+  stara: string ="";
+  nova: string ="";
+  potvrda: string ="";
 
-  username = localStorage.getItem('korisnik');
+  username = localStorage.getItem('korisnik')!;
 
-  k: Korisnik;
-  s: Student;
-  z: Zaposleni;
+  k!: Korisnik;
+  s!: Student;
+  z!: Zaposleni;
 
   student: boolean = false;
   gost: boolean = true;
-  korisnik: string;
+  korisnik: string ="";
   admin: boolean = false;
   zaposleni: boolean = false;
 
@@ -69,7 +69,7 @@ export class PromenalozinkeComponent implements OnInit {
     if (this.k.password == this.stara) {
 
       if (this.nova == this.potvrda) {
-        this.userService.promenaLozinke(this.k.username, this.nova,"nije").subscribe(ob=> {
+        this.userService.promenaLozinke(this.k.username, this.nova,"nije").subscribe((ob:any)=> {
           if (ob['poruka']=='OK') {
             alert('promenjeno');
           }
@@ -84,7 +84,7 @@ export class PromenalozinkeComponent implements OnInit {
        } else {
          alert('potvrda se ne slaze');
        }
-    
+
     } else {
       alert('pogresna lozinka')
     }
@@ -130,17 +130,17 @@ export class PromenalozinkeComponent implements OnInit {
 
   azurirajStud() {
 
-    this.userService.promenaLozinkeStud(this.k.username, this.nova).subscribe(ob=> {
+    this.userService.promenaLozinkeStud(this.k.username, this.nova).subscribe((ob:any)=> {
       if (ob['poruka']=='OK') {
-        
+
       }
     });
   }
 
   azurirajZap() {
-    this.userService.promenaLozinkeZap(this.k.username, this.nova).subscribe(ob=> {
+    this.userService.promenaLozinkeZap(this.k.username, this.nova).subscribe((ob:any)=> {
       if (ob['poruka']=='OK') {
-        
+
       }
     });
   }
