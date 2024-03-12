@@ -70,9 +70,11 @@ login() {
 } //kraj else
 }
 
-sampleFormControl = new FormControl('', [
-  validateInput
-]);
+//sampleFormControl = new FormControl('', [
+//  validateInput
+//]);
+
+//<ng-image-slider [images]="imageObject" #nav manageImageRatio='true'></ng-image-slider> dodaj image slider
 
 imageObject: Array<object> = [{
   image: 'assets/slike/slika1.jpg',

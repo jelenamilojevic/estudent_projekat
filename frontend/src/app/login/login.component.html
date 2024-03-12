@@ -35,22 +35,22 @@
     <div id="content_header"></div>
     <div id="site_content">
       <div>
-        <ng-image-slider [images]="imageObject" #nav manageImageRatio='true'></ng-image-slider> 
+        image slider
       </div>
 	  <div id="sidebar_container">
         <div class="sidebar">
           <div class="sidebar_top"></div>
           <div class="sidebar_item">
             <!-- insert your sidebar items here -->
-           
+
             <h4>Na ovom linku se možete registrovati kao novi korisnik</h4>
-            
+
             <a routerLink='/registracija'> <h3>Registracija</h3></a>
           </div>
           <div class="sidebar_base"></div>
         </div>
         <div class="sidebar">
-          <div class="sidebar_top"></div> 
+          <div class="sidebar_top"></div>
           <div class="sidebar_item">
             <h3>Korisni linkovi</h3>
             <ul>
@@ -61,17 +61,17 @@
           </div>
           <div class="sidebar_base"></div>
         </div>
-        
+
       </div>
       <div id="content">
-       
+
        <h1>Ulogujte se: </h1>
        <form >
         <div class="form_settings">
           <p><span>Korisnicko ime: </span>
 
               <input  type="text"  name="username" [(ngModel)]='username'  class = "form-control" required #korime="ngModel"/>
-              
+
           </p>
           <p><span>Lozinka: </span>
             <input type="password" name="password" [(ngModel)]='password'  class = "form-control" required #loz="ngModel"/>
@@ -81,11 +81,11 @@
             <input class="submit" type="submit"  value="Login" (click)='login()'/>
           </p>
 
-          <div *ngIf="korime.errors.required && (korime.dirty || korime.touched)">
+          <div *ngIf="korime.errors?.['required'] && (korime.dirty || korime.touched)">
             Unesite korisnicko ime
           </div>
 
-          <div *ngIf="loz.errors.required && (loz.dirty || loz.touched)">
+          <div *ngIf="loz.errors?.['required'] && (loz.dirty || loz.touched)">
             Unesite lozinku
           </div>
 
@@ -93,7 +93,7 @@
            {{poruka}}
           </div>
 
-          
+
         </div>
       </form>
 
@@ -101,17 +101,17 @@
       <h1>O katedri </h1>
       <p>
           Katedra se bavi razvojem softvera, arhitekturom računara, sistemskim softverom, informacionim tehnologijama,
-           internet tehnologijama i drugim oblastima elektrotehnike. Na drugoj godini se rade objektno orijentisano programiranje, 
+           internet tehnologijama i drugim oblastima elektrotehnike. Na drugoj godini se rade objektno orijentisano programiranje,
            algoritmi i strukture podataka, osnove arhitekture računara i osnove operativnih sistema.
            Treća godina pruža širi pogled na svet računarstva i bavi se bazama podataka, sistemskim programiranjem, konkurentnim programiranjem,
-           računarskim mrežama i naprednim arhitekturama računara. Na četvrtoj godini je fokus na specijalizaciji znanja. Neke od oblasti 
-           kojima se bavimo su mikroprocesorski sistemi, programski prevodioci, projektovanje softvera, performanse računarskih sistema, 
+           računarskim mrežama i naprednim arhitekturama računara. Na četvrtoj godini je fokus na specijalizaciji znanja. Neke od oblasti
+           kojima se bavimo su mikroprocesorski sistemi, programski prevodioci, projektovanje softvera, performanse računarskih sistema,
            internet programiranje, računarska grafika, zaštita podataka ...
-    
+
       </p>
       <p>
           Studiranje na RTI katedri donosi najmodernije znanje iz relevantnih računarskih oblasti. Praktično znanje se stiče kroz
-          domaće zadatke, laboratorijske vežbe, projekte i diplomske radove. Katedra ima 30 godina tradicije u nastavi računarstva i 
+          domaće zadatke, laboratorijske vežbe, projekte i diplomske radove. Katedra ima 30 godina tradicije u nastavi računarstva i
           preko 25 nastavnika i saradnika koji prate svetske trendove.
       </p>
 
