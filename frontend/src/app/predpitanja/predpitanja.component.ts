@@ -16,11 +16,11 @@ export class PredpitanjaComponent implements OnInit {
     this.dohvatiIspitna();
   }
 
-  naziv = localStorage.getItem('predmet');
-  ispitna: Ispitna[];
+  naziv = localStorage.getItem('predmet')!;
+  ispitna: Ispitna[] =[];
 
   lista: Ispitna[] = [];
-  tmp: Ispitna;
+  tmp!: Ispitna;
 
   dohvatiIspitna() {
     this.podaci.dohvIspitna(this.naziv).subscribe((ispitna: Ispitna[])=>{
@@ -34,7 +34,7 @@ export class PredpitanjaComponent implements OnInit {
     });
   }
 
-  
+
   ispitnaNovo() {
     this.lista =  new Array<Ispitna>();
     for (let i of this.ispitna) {
@@ -51,7 +51,7 @@ export class PredpitanjaComponent implements OnInit {
     }
   }
 
-  
+
  logout() {
   localStorage.setItem('korisnik',"");
   localStorage.setItem('tipkor',"");

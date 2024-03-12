@@ -11,7 +11,7 @@ export class OsnovnertiComponent implements OnInit {
   constructor(private router: Router) { }
 
   ngOnInit(): void {
-    this.korisnik = localStorage.getItem('tipkor');
+    this.korisnik = localStorage.getItem('tipkor')!;
     if (this.korisnik == "student") {
       this.student = true;
       this.gost = false;
@@ -23,7 +23,7 @@ export class OsnovnertiComponent implements OnInit {
 
   student: boolean = false;
   gost: boolean = true;
-  korisnik: string;
+  korisnik: string = "";
 
 
   logout() {

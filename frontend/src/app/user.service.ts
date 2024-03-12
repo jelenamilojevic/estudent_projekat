@@ -18,7 +18,7 @@ export class UserService {
       password: password
     }
 
-    return this.http.post(`${this.uri}/login`,data);
+    return this.http.post<Korisnik>(`${this.uri}/login`,data);
   }
 
   registruj(username: string,password: string,ime: string, prezime: string,indeks: string,tip: any,status: any) {

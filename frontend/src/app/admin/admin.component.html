@@ -32,35 +32,35 @@
     <div id="content_header"></div>
     <div id="site_content">
       <div id="banner">
-       
+
       </div>
 	  <div id="sidebar_container">
 
       <div class="sidebar">
-          <div class="sidebar_top"></div> 
+          <div class="sidebar_top"></div>
           <div class="sidebar_item">
            <a routerLink='/promenalozinke'> <h3>Promena lozinke</h3></a>
-            
+
           </div>
           <div class="sidebar_base"></div>
-        </div>  
+        </div>
 
         <div class="sidebar">
-          <div class="sidebar_top"></div> 
+          <div class="sidebar_top"></div>
           <div class="sidebar_item">
           <h3>Izlogujte se: </h3>
          <form>
-           
+
              <input class="submit" type="submit" name="logout" value="Logout" (click)='logout()'/>
-        
+
          </form>
-            
+
           </div>
           <div class="sidebar_base"></div>
-        </div>  
-        
+        </div>
+
         <div class="sidebar">
-          <div class="sidebar_top"></div> 
+          <div class="sidebar_top"></div>
           <div class="sidebar_item">
             <h3>Korisni linkovi</h3>
             <ul>
@@ -71,28 +71,28 @@
           </div>
           <div class="sidebar_base"></div>
         </div>
-        
+
       </div>
       <div id="content">
-       
+
         <h1>Dodaj studenta: </h1>
         <hr>
         <form>
          <div class="form_settings">
            <p><span>Korisnicko ime: </span>
-               <input type="text"  name="username" [(ngModel)]='username'> 
+               <input type="text"  name="username" [(ngModel)]='username'>
            </p>
            <p><span>Lozinka: </span>
              <input type="password" name="password" [(ngModel)]='password' />
            </p>
            <p><span>Ime: </span>
-             <input type="text"  name="ime" [(ngModel)]='ime'> 
+             <input type="text"  name="ime" [(ngModel)]='ime'>
            </p>
            <p><span>Prezime: </span>
-             <input type="text"  name="prezime" [(ngModel)]='prezime'> 
+             <input type="text"  name="prezime" [(ngModel)]='prezime'>
            </p>
            <p><span>Indeks: </span>
-             <input type="text"  name="indeks" [(ngModel)]='indeks'> 
+             <input type="text"  name="indeks" [(ngModel)]='indeks'>
            </p>
            <p><span>Tip</span>
              <select name="tip" [(ngModel)]='tip'>
@@ -112,35 +112,35 @@
          </p>
          </div>
        </form>
-       <br/> <br/> 
+       <br/> <br/>
 
        <h1>Dodaj zaposlenog: </h1>
        <hr>
        <form>
         <div class="form_settings">
           <p><span>Korisnicko ime: </span>
-              <input type="text"  name="username" [(ngModel)]='zapuser'> 
+              <input type="text"  name="username" [(ngModel)]='zapuser'>
           </p>
           <p><span>Lozinka: </span>
             <input type="password" name="password" [(ngModel)]='zappass' />
           </p>
           <p><span>Ime: </span>
-            <input type="text"  name="ime" [(ngModel)]='zapime'> 
+            <input type="text"  name="ime" [(ngModel)]='zapime'>
           </p>
           <p><span>Prezime: </span>
-            <input type="text"  name="prezime" [(ngModel)]='zapprez'> 
+            <input type="text"  name="prezime" [(ngModel)]='zapprez'>
           </p>
           <p><span>Adresa: </span>
-            <input type="text"  name="adresa" [(ngModel)]='zapadr'> 
+            <input type="text"  name="adresa" [(ngModel)]='zapadr'>
           </p>
           <p><span>Telefon: </span>
-            <input type="text"  name="telefon" [(ngModel)]='zaptel'> 
+            <input type="text"  name="telefon" [(ngModel)]='zaptel'>
           </p>
           <p><span>Veb sajt: </span>
-            <input type="text"  name="vebsajt" [(ngModel)]='zapveb'> 
+            <input type="text"  name="vebsajt" [(ngModel)]='zapveb'>
           </p>
           <p><span>Licni podaci: </span>
-            <input type="text"  name="podaci" [(ngModel)]='zappod'> 
+            <input type="text"  name="podaci" [(ngModel)]='zappod'>
           </p>
           <p><span>Zvanje</span>
             <select name="tip" [(ngModel)]='zapzva'>
@@ -155,7 +155,7 @@
             </select>
           </p>
           <p><span>Kabinet: </span>
-            <input type="text"  name="kabinet" [(ngModel)]='zapkab'> 
+            <input type="text"  name="kabinet" [(ngModel)]='zapkab'>
           </p>
           <p><span>Status</span>
             <select name="status" [(ngModel)]='zapsta'>
@@ -164,7 +164,7 @@
             </select>
           </p>
           <p><span>Slika: </span>
-            <input type="file"  name="slika" [(ngModel)]='image' (change)="handleFileInput($event.target.files)"> 
+            <input type="file"  name="slika" [(ngModel)]='image' (change)="handleFileInput($event)">
           </p>
           <p style="padding-top: 15px"><span>&nbsp;</span>
             <input class="submit" type="submit" name="submit" value="Dodaj" (click)='registrujZap()'/>
@@ -179,10 +179,10 @@
       <form >
         <div class="form_settings">
           <p><span>Naziv: </span>
-            <input  type="text"  name="naziv" [(ngModel)]='ur.naziv'/>   
+            <input  type="text"  name="naziv" [(ngModel)]='ur.naziv'/>
           </p>
             <p><span>Sifra: </span>
-                <input  type="text"  name="sifra" [(ngModel)]='ur.sifra'/>   
+                <input  type="text"  name="sifra" [(ngModel)]='ur.sifra'/>
             </p>
             <p><span>Status</span>
                 <select name="status" [(ngModel)]='ur.tip'>
@@ -191,22 +191,22 @@
                 </select>
             </p>
             <p><span>Fond: </span>
-                <input  type="text"  name="fond" [(ngModel)]='ur.fond'/>   
+                <input  type="text"  name="fond" [(ngModel)]='ur.fond'/>
             </p>
             <p><span>ESPB: </span>
-                <input  type="text"  name="espb" [(ngModel)]='ur.espb'/>   
+                <input  type="text"  name="espb" [(ngModel)]='ur.espb'/>
             </p>
             <p><span>Cilj: </span>
-                <textarea rows="8" cols="50"  type="text"  name="cilj" [(ngModel)]='ur.cilj'></textarea>   
+                <textarea rows="8" cols="50"  type="text"  name="cilj" [(ngModel)]='ur.cilj'></textarea>
             </p>
             <p><span>Ishod: </span>
-                <textarea rows="8" cols="50"  type="text"  name="ishod" [(ngModel)]='ur.ishod'></textarea>   
+                <textarea rows="8" cols="50"  type="text"  name="ishod" [(ngModel)]='ur.ishod'></textarea>
             </p>
             <p><span>Predavanja: </span>
-                <input  type="text"  name="predavanja" [(ngModel)]='ur.predavanja'/>   
+                <input  type="text"  name="predavanja" [(ngModel)]='ur.predavanja'/>
             </p>
             <p><span>Vezbe: </span>
-                <input  type="text"  name="vezbe" [(ngModel)]='ur.vezbe'/>   
+                <input  type="text"  name="vezbe" [(ngModel)]='ur.vezbe'/>
             </p>
             <p><span>Lab Vezbe</span>
                 <select name="labvezbe" [(ngModel)]='ur.labvezbe'>
@@ -215,7 +215,7 @@
                 </select>
             </p>
             <p><span>Komentar: </span>
-                <input  type="text"  name="komentar" [(ngModel)]='ur.komentar'/>   
+                <input  type="text"  name="komentar" [(ngModel)]='ur.komentar'/>
             </p>
 
             <p style="padding-top: 15px"><span>&nbsp;</span>
@@ -223,10 +223,10 @@
             </p>
         </div>
       </form>
- 
+
 
         <div>
-          
+
             <h1></h1>
             <h1></h1>
             <h1></h1>
@@ -235,7 +235,7 @@
             <h1></h1>
         </div>
 
-        
+
       </div>
     </div>
     <div id="content_footer"></div>

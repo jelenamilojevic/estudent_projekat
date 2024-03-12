@@ -1,5 +1,5 @@
 export class Pohadja {
-    username : string;
-    naziv:  string;
-    grupa: string;
+    username : string = "";
+    naziv:  string = "";
+    grupa: string = "";
 }

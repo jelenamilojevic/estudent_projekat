@@ -31,9 +31,9 @@ export class AdminplanComponent implements OnInit {
   }
 
 
-  predmeti: Predmet[];
-  zaposleni: Zaposleni[];
-  studenti: Student[];
+  predmeti: Predmet[]=[];
+  zaposleni: Zaposleni[]=[];
+  studenti: Student[]=[];
 
   drzi: Drzi = new Drzi();
   pohadja: Pohadja = new Pohadja();
@@ -49,7 +49,7 @@ export class AdminplanComponent implements OnInit {
       }
     })
   }
-  
+
 
   dohvZaposlene() {
     this.podaci.dohvSveZaposlene().subscribe((zaposleni: Zaposleni[])=>{
@@ -61,7 +61,7 @@ export class AdminplanComponent implements OnInit {
       }
     })
   }
-  
+
 
   dohvStudente() {
     this.podaci.dohvSveStudente().subscribe((studenti: Student[])=>{
@@ -79,7 +79,7 @@ export class AdminplanComponent implements OnInit {
 
     if (this.drzi.username != "" && this.drzi.naziv != "" && this.drzi.grupa != "")  {
 
-      this.podaci.dodajDrzi(this.drzi.username, this.drzi.naziv, this.drzi.grupa).subscribe(ob=> {
+      this.podaci.dodajDrzi(this.drzi.username, this.drzi.naziv, this.drzi.grupa).subscribe((ob:any)=> {
         if (ob['drzi']== 'ok') {
           alert('dodato');
         }
@@ -87,14 +87,14 @@ export class AdminplanComponent implements OnInit {
     } else {
       alert('popunite sva polja!');
     }
-   
+
   }
 
   dodajpohadja() {
 
     if (this.pohadja.username != "" && this.pohadja.naziv != "" && this.pohadja.grupa != "")  {
 
-      this.podaci.dodajPohadja(this.pohadja.username, this.pohadja.naziv, this.pohadja.grupa).subscribe(ob=> {
+      this.podaci.dodajPohadja(this.pohadja.username, this.pohadja.naziv, this.pohadja.grupa).subscribe((ob:any)=> {
         if (ob['pohadja']== 'ok') {
           alert('dodato');
         }
@@ -110,7 +110,7 @@ export class AdminplanComponent implements OnInit {
     localStorage.setItem('tipkor',"");
     this.router.navigate(['/login']);
   }
- 
- 
+
+
 
 }

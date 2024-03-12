@@ -14,10 +14,10 @@ export class NastavnoComponent implements OnInit {
   constructor(private podaci:PodaciService,private router: Router) { }
 
   ngOnInit(): void {
-    this.username = localStorage.getItem('nastavno');
+    this.username = localStorage.getItem('nastavno')!;
     this.dohvZaposlenog();
 
-    this.korisnik = localStorage.getItem('tipkor');
+    this.korisnik = localStorage.getItem('tipkor')!;
     if (this.korisnik == "student") {
       this.student = true;
       this.gost = false;
@@ -27,13 +27,13 @@ export class NastavnoComponent implements OnInit {
     }
   }
 
-  username: string;
+  username: string = "";
 
-  zap: Zaposleni;
+  zap!: Zaposleni;
 
   student: boolean = false;
   gost: boolean = true;
-  korisnik: string;
+  korisnik: string = "";
 
   dohvZaposlenog() {
     this.podaci.dohvNastavno(this.username).subscribe((zaposleni:Zaposleni)=>{
@@ -52,7 +52,7 @@ export class NastavnoComponent implements OnInit {
     localStorage.setItem('tipkor',"");
     this.router.navigate(['/login']);
   }
-  
+
 
 
 }

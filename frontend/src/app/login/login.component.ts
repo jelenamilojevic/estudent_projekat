@@ -20,8 +20,8 @@ export class LoginComponent implements OnInit {
   }
 
 
-username: string;
-password: string;
+username: string = "";
+password: string = "";
 
 patternStudent = /([a-z]){2}([1-2]){1}([0-9]){5}([dmp]){1}@student.etf.rs/;
 patternZaposleni = /(\w){2,15}@etf.bg.ac.rs/;
@@ -44,7 +44,7 @@ login() {
       if (korisnik.tip == "admin" && this.patternZaposleni.test(this.username)) {
         localStorage.setItem('tipkor',"admin");
         this.router.navigate(['/admin']);
-        } 
+        }
        else if (korisnik.tip == "zaposleni" && this.patternZaposleni.test(this.username)) {
         localStorage.setItem('tipkor',"zaposleni");
          this.router.navigate(['/zaposlenreg']);
@@ -64,10 +64,10 @@ login() {
    }
    else {
      alert('losi podaci');
-   } 
+   }
  })
 
-} //kraj else 
+} //kraj else
 }
 
 sampleFormControl = new FormControl('', [

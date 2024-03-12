@@ -14,14 +14,14 @@ export class PredavanjaComponent implements OnInit {
 
   ngOnInit(): void {
     this.dohvatiPredavanja();
-   
+
   }
 
 
-  predavanja: Predavanja[];
-  naziv = localStorage.getItem('predmet');
+  predavanja: Predavanja[] = [];
+  naziv = localStorage.getItem('predmet')!;
   lista: Predavanja[] = [];
-  tmp: Predavanja;
+  tmp!: Predavanja;
 
   dohvatiPredavanja() {
     this.podaci.dohvPredavanja(this.naziv).subscribe((predavanja: Predavanja[])=>{
@@ -52,7 +52,7 @@ export class PredavanjaComponent implements OnInit {
     }
   }
 
-  
+
  logout() {
   localStorage.setItem('korisnik',"");
   localStorage.setItem('tipkor',"");

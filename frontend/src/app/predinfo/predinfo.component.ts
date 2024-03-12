@@ -21,14 +21,14 @@ export class PredinfoComponent implements OnInit {
   }
 
 
-  naziv = localStorage.getItem('predmet');
-  drzi : Drzi[];
-  zaposleni: Zaposleni;
+  naziv = localStorage.getItem('predmet')!;
+  drzi : Drzi[] = [];
+  zaposleni!: Zaposleni;
   sviZap: Zaposleni[] = [];
 
-  tmp: Predmet;
+  tmp!: Predmet;
 
-  username: string;
+  username: string ="";
 
 
   dohvPredmetFilter() {
@@ -73,12 +73,12 @@ export class PredinfoComponent implements OnInit {
     this.router.navigate(['/nastavno']);
   }
 
-  
+
   logout() {
     localStorage.setItem('korisnik',"");
     localStorage.setItem('tipkor',"");
     this.router.navigate(['/login']);
   }
- 
+
 
 }

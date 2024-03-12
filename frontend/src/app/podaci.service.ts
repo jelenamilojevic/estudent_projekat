@@ -11,6 +11,7 @@ import { Labvezbe } from './model/labvezbe.model';
 import { Zaposleni } from './model/zaposleni.model';
 import { Pohadja } from './model/pohadja.model';
 import { Student } from './model/student.model';
+import { Projekat } from './model/projekat.model';
 
 @Injectable({
   providedIn: 'root'
@@ -31,16 +32,16 @@ export class PodaciService {
   }
 
   dohvSveStudente() {
-    return this.http.get(`${this.uri}/dohvSveStudente`);
+    return this.http.get<Student[]>(`${this.uri}/dohvSveStudente`);
   }
 
   dohvSvePredmete() {
-    return this.http.get(`${this.uri}/dohvSvePredmete`);
+    return this.http.get<Predmet[]>(`${this.uri}/dohvSvePredmete`);
   }
 
 
   dohvSveVesti() {
-    return this.http.get(`${this.uri}/dohvSveVesti`);
+    return this.http.get<Vesti[]>(`${this.uri}/dohvSveVesti`);
   }
 
   dohvNastavno(username: string) {
@@ -78,7 +79,7 @@ export class PodaciService {
     const data = {
       naziv: naziv
     }
-    return this.http.post(`${this.uri}/dohvDrziNaziv`,data);
+    return this.http.post<Drzi[]>(`${this.uri}/dohvDrziNaziv`,data);
   }
 
   dohvDrziIme(username: string) {
@@ -93,7 +94,7 @@ dohvObavestenja(naziv: string) {
   const data = {
     naziv: naziv
   }
-  return this.http.post(`${this.uri}/dohvObavestenja`,data);
+  return this.http.post<Obavestenje[]>(`${this.uri}/dohvObavestenja`,data);
 }
 
 
@@ -159,7 +160,7 @@ dohvProjekat(naziv: string) {
   const data = {
     naziv: naziv
   }
-  return this.http.post(`${this.uri}/dohvProjekat`,data);
+  return this.http.post<Projekat[]>(`${this.uri}/dohvProjekat`,data);
 }
 
 
@@ -318,7 +319,7 @@ dodajPohadja(username: string,naziv: string,grupa: any) {
 
 
 
-   dodajPredmet(naziv: string,tip: any, sifra: any, fond: any, espb: any, cilj: any ,ishod: any,predavanja: any,vezbe: any,labvezbe: any, komentar: any) {
+  dodajPredmet(naziv: string,tip: any, sifra: any, fond: any, espb: any, cilj: any ,ishod: any,predavanja: any,vezbe: any,labvezbe: any, komentar: any) {
   const data = {
   naziv: naziv,
   tip: tip,

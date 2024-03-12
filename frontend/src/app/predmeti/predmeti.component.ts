@@ -16,19 +16,19 @@ export class PredmetiComponent implements OnInit {
   constructor(private podaci: PodaciService,private router: Router) { }
 
   ngOnInit(): void {
-    this.naziv = localStorage.getItem('predmet');
+    this.naziv = localStorage.getItem('predmet')!;
     this.dohvObavestenja();
   }
 
-   naziv : string;
-   ob: Obavestenje[];
-   obav: Obavestenje;
+   naziv : string ="";
+   ob: Obavestenje[] =[];
+   obav!: Obavestenje;
    lista: Obavestenje[] = [];
-   sortirano: Obavestenje[];
-   tmp: Date;
+   sortirano: Obavestenje[] = [];
+   tmp!: Date;
 
    trenutni  = new Date();
-   razlika : Date;
+   razlika!: Date;
 
 
    dohvObavestenja() {
@@ -49,7 +49,7 @@ export class PredmetiComponent implements OnInit {
    }
 
 
-   datum(obavestenje) {
+   datum(obavestenje: any) {
      this.tmp = new Date(obavestenje.datum);
    }
 
@@ -65,7 +65,7 @@ export class PredmetiComponent implements OnInit {
       }
    }
 
-   
+
  logout() {
   localStorage.setItem('korisnik',"");
   localStorage.setItem('tipkor',"");

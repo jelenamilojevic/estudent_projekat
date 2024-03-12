@@ -12,7 +12,7 @@ export class OsnovneostComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.korisnik = localStorage.getItem('tipkor');
+    this.korisnik = localStorage.getItem('tipkor')!;
     if (this.korisnik == "student") {
       this.student = true;
       this.gost = false;
@@ -24,7 +24,7 @@ export class OsnovneostComponent implements OnInit {
 
   student: boolean = false;
   gost: boolean = true;
-  korisnik: string;
+  korisnik: string = "";
 
   logout() {
     localStorage.setItem('korisnik',"");

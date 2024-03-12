@@ -51,26 +51,26 @@
 	  <div id="sidebar_container">
 
       <div class="sidebar" *ngIf='student'>
-        <div class="sidebar_top"></div> 
+        <div class="sidebar_top"></div>
         <div class="sidebar_item">
         <h3>Izlogujte se: </h3>
        <form>
-         
+
            <input class="submit" type="submit" name="logout" value="Logout" (click)='logout()'/>
-      
+
        </form>
-          
+
         </div>
         <div class="sidebar_base"></div>
-      </div> 
+      </div>
 
       <div class="sidebar" *ngIf='gost'>
         <div class="sidebar_top"></div>
         <div class="sidebar_item">
           <!-- insert your sidebar items here -->
-         
+
           <h4>Na ovom linku se možete registrovati kao novi korisnik</h4>
-          
+
           <a routerLink='/registracija'> <h3>Registracija</h3></a>
         </div>
         <div class="sidebar_base"></div>
@@ -89,20 +89,20 @@
         </div>
       </div>
       <div id="content">
-     
+
         <h1>Kontakt</h1>
         <hr>
         <h3>dr Nenad Korolija</h3>
         <h3>kabinet: Paviljon, 26</h3>
         <h3>tel: +381 11 3218389</h3>
-        <h3>e-mail: nenadko@etf.rs</h3>
+        <h3>e-mail: nenadko&#64;etf.rs</h3>
 
 
         <h1>Adresa: </h1>
-  
+
         <h3>Bulevar kralja Aleksandra 73</h3>
         <h3>Beograd, Srbija</h3>
-        
+
         <br/><br/><br/><br/><br/><br/>
 
       </div>

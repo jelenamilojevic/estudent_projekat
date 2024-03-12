@@ -17,16 +17,16 @@ export class PredlabComponent implements OnInit {
     this.dohvatiPredmet();
   }
 
-  naziv = localStorage.getItem('predmet');
+  naziv = localStorage.getItem('predmet')!;
 
-  labvezbe: Labvezbe [];
-  predmet: Predmet;
+  labvezbe: Labvezbe [] = [];
+  predmet!: Predmet;
   nemalab: boolean = true;
   nemalabporuka = "Na ovom predmetu nema laboratorijskih vezbi";
 
   lista: Labvezbe[] = [];
-  tmp: Labvezbe;
-  
+  tmp!: Labvezbe;
+
 
   dohvatiPredmet() {
     this.podaci.dohvPredmetFilter(this.naziv).subscribe((predmet: Predmet) => {
@@ -71,7 +71,7 @@ export class PredlabComponent implements OnInit {
     }
   }
 
-  
+
  logout() {
   localStorage.setItem('korisnik',"");
   localStorage.setItem('tipkor',"");

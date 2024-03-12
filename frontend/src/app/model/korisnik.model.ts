@@ -1,6 +1,6 @@
 export class Korisnik {
-    username: string;
-    password: string;
-    tip: string;
-    prvi: string;
+    username: string  = "";
+    password: string  = "";
+    tip: string  = "";
+    prvi: string = "";
 }

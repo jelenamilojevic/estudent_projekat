@@ -27,7 +27,7 @@ export class AdminComponent implements OnInit {
 
     this.zapuser = "";
     this.zappass = "";
-    this.zapime = ""; 
+    this.zapime = "";
     this.zapprez = "";
     this.zapadr = "";
     this.zaptel = "";
@@ -52,29 +52,29 @@ export class AdminComponent implements OnInit {
 
   }
 
- 
-  username: string;
-  password: string;
-  ime: string;
-  prezime: string;
-  indeks: string;
-  tip: string;
-  status: string;
 
-  zapuser: string;
-  zappass: string;
-  zapime: string; 
-  zapprez: string;
-  zapadr: string;
-  zaptel: string;
-  zapveb: string;
-  zappod: string;
-  zapzva: string;
-  zapkab: string;
-  zapsta: string;
-  zapsli: string;
+  username!: string;
+  password!: string;
+  ime!: string;
+  prezime!: string;
+  indeks!: string;
+  tip!: string;
+  status!: string;
 
-  ur: Predmet;
+  zapuser!: string;
+  zappass!: string;
+  zapime!: string;
+  zapprez!: string;
+  zapadr!: string;
+  zaptel!: string;
+  zapveb!: string;
+  zappod!: string;
+  zapzva!: string;
+  zapkab!: string;
+  zapsta!: string;
+  zapsli!: string;
+
+  ur!: Predmet;
 
   patternStudent = /([a-z]){2}([1-2]){1}([0-9]){5}([dmp]){1}@student.etf.rs/;
   patternIndeks = /dddd/;
@@ -84,36 +84,36 @@ export class AdminComponent implements OnInit {
   postojizap = true;
   postojipred = true;
 
-  image: File;
- 
+  image!: File;
+
   registruj() {
 
     if (this.username != "" && this.password !="" && this.ime != "" &&
     this.prezime != "" && this.indeks!= "" && this.tip!="" && this.status !="") {
 
       if (this.patternStudent.test(this.username)) {
-      
+
         this.userService.dohvatiKorisnika(this.username).subscribe((korisnik: Korisnik)=> {
           if (korisnik) {
             alert('korisnik sa tim username vec postoji');
           } else {
 
             this.userService.registruj(this.username, this.password, this.ime, this.prezime,
-              this.indeks, this.tip, this.status).subscribe(ob=> {
+              this.indeks, this.tip, this.status).subscribe((ob:any)=> {
                 if (ob['user']== 'ok') {
                   alert('student added');
                 }
               });
-        
-              this.userService.registrujKor(this.username, this.password, "student","jeste").subscribe(ob=> {
+
+              this.userService.registrujKor(this.username, this.password, "student","jeste").subscribe((ob:any)=> {
                 if (ob['user']=='ok') {
                   alert('kor added');
                 }
               });
-          
+
           }
         })
-       
+
       } else {
         alert('username nije u dobrom formatu')
       }
@@ -121,12 +121,12 @@ export class AdminComponent implements OnInit {
     } else {
       alert('unesite sve podatke!');
     }
-    
+
   }
 
  registrujZap() {
 
-  if (this.zapuser != "" && this.zappass != "" && this.zapime!= "" && this.zapprez!= "" 
+  if (this.zapuser != "" && this.zappass != "" && this.zapime!= "" && this.zapprez!= ""
   && this.zapadr != ""  && this.zapzva != "" && this.zapkab!= "" && this.zapsta != "") {
     this.zapsli = this.image.name;
     if (this.patternZaposleni.test(this.zapuser)) {
@@ -135,16 +135,16 @@ export class AdminComponent implements OnInit {
         if (korisnik) {
           alert('korisnik sa tim username vec postoji');
         } else {
-       
+
           this.userService.registrujZap(this.zapuser, this.zappass, this.zapime, this.zapprez,
             this.zapadr,this.zaptel,this.zapveb,this.zappod,this.zapzva,
-            this.zapkab, this.zapsta,this.zapsli).subscribe(ob=> {
+            this.zapkab, this.zapsta,this.zapsli).subscribe((ob:any)=> {
               if (ob['user']== 'ok') {
                 alert('zaposleni added');
               }
             });
-        
-            this.userService.registrujKor(this.zapuser, this.zappass, "zaposleni","jeste").subscribe(ob=> {
+
+            this.userService.registrujKor(this.zapuser, this.zappass, "zaposleni","jeste").subscribe((ob:any)=> {
               if (ob['user']=='ok') {
                 alert('kor added');
               }
@@ -165,7 +165,7 @@ export class AdminComponent implements OnInit {
 
  dodajPred() {
 
-  if (this.ur.naziv !="" && this.ur.tip !="" && this.ur.sifra !="" && this.ur.fond !=0 
+  if (this.ur.naziv !="" && this.ur.tip !="" && this.ur.sifra !="" && this.ur.fond !=0
   && this.ur.espb !=0  && this.ur.cilj !="" && this.ur.ishod !="" && this.ur.predavanja
   !="" && this.ur.vezbe !="" && this.ur.labvezbe !="") {
 
@@ -173,10 +173,10 @@ export class AdminComponent implements OnInit {
       if (predmet) {
         alert('predmet sa tim imenom vec postoji');
       }else {
-      
-        this.podaci.dodajPredmet(this.ur.naziv, this.ur.tip, this.ur.sifra,this.ur.fond, 
+
+        this.podaci.dodajPredmet(this.ur.naziv, this.ur.tip, this.ur.sifra,this.ur.fond,
           this.ur.espb, this.ur.cilj, this.ur.ishod, this.ur.predavanja,
-          this.ur.vezbe, this.ur.labvezbe, this.ur.komentar).subscribe(ob=> {
+          this.ur.vezbe, this.ur.labvezbe, this.ur.komentar).subscribe((ob:any)=> {
             if (ob['predmet']== 'ok') {
               alert('predmet added');
             }
@@ -198,9 +198,11 @@ export class AdminComponent implements OnInit {
    this.router.navigate(['/login']);
  }
 
+ files!: FileList;
 
- handleFileInput(files: FileList) {
-  this.image = files.item(0);
+handleFileInput(event: Event) {
+  this.files =  (event.target as HTMLInputElement).files!;
+  this.image = this.files.item(0)!;
 }
 
 

@@ -1,4 +1,3 @@
-import { Route } from '@angular/compiler/src/core';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Student } from '../model/student.model';
@@ -19,10 +18,10 @@ export class AdminstudComponent implements OnInit {
   }
 
 
-  studenti: Student[];
-  ur: Student;
-  izb: Student;
-  
+  studenti: Student[] =[];
+  ur!: Student;
+  izb!: Student;
+
 
   dohvStudente() {
     this.podaci.dohvSveStudente().subscribe((data: Student[])=>{
@@ -39,18 +38,18 @@ export class AdminstudComponent implements OnInit {
    this.ur.indeks = st.indeks;
    this.ur.tip = st.tip;
    this.ur.status = st.status;
-   
+
   }
 
   izbrisi(st: Student) {
     this.izb = st;
-    this.userService.obrisiStudenta(st.username).subscribe(ob=> {
+    this.userService.obrisiStudenta(st.username).subscribe((ob:any)=> {
       if (ob['user']== 'ok') {
         this.dohvStudente();
         alert('obrisano');
       }
     })
-    this.userService.obrisiKorisnika(st.username).subscribe(ob=> {
+    this.userService.obrisiKorisnika(st.username).subscribe((ob:any)=> {
       if (ob['user']== 'ok') {
         alert('obrisano2');
       }
@@ -61,13 +60,13 @@ export class AdminstudComponent implements OnInit {
   urediStud() {
       this.podaci.azurirajStudentaAdmin(this.ur.username, this.ur.password,
         this.ur.ime, this.ur.prezime, this.ur.indeks, this.ur.tip,
-        this.ur.status).subscribe(ob=> {
+        this.ur.status).subscribe((ob:any)=> {
             if (ob['poruka']=='OK') {
               alert('azuriran');
             }
         })
         this.dohvStudente();
-   
+
   }
 
   logout() {
@@ -75,6 +74,6 @@ export class AdminstudComponent implements OnInit {
     localStorage.setItem('tipkor',"");
     this.router.navigate(['/login']);
   }
- 
+
 
 }

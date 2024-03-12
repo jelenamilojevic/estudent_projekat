@@ -18,10 +18,10 @@ export class AdminzapComponent implements OnInit {
   }
 
 
-  zaposleni: Zaposleni[];
-  ur: Zaposleni;
-  izb: Zaposleni;
-  
+  zaposleni: Zaposleni[] =[];
+  ur!: Zaposleni;
+  izb!: Zaposleni;
+
 
   dohvZaposlene() {
     this.podaci.dohvSveZaposlene().subscribe((data: Zaposleni[])=>{
@@ -40,20 +40,20 @@ export class AdminzapComponent implements OnInit {
    this.ur.vebsajt = zap.vebsajt;
    this.ur.podaci = zap.podaci;
    this.ur.zvanje = zap.zvanje;
-   this.ur.kabinet = zap.kabinet; 
+   this.ur.kabinet = zap.kabinet;
    this.ur.status = zap.status;
    this.ur.slika = zap.slika;
   }
 
   izbrisi(zap: Zaposleni) {
     this.izb = zap;
-    this.userService.obrisiZaposlenog(zap.username).subscribe(ob=> {
+    this.userService.obrisiZaposlenog(zap.username).subscribe((ob:any)=> {
       if (ob['user']== 'ok') {
         this.dohvZaposlene();
         alert('obrisano');
       }
     })
-    this.userService.obrisiKorisnika(zap.username).subscribe(ob=> {
+    this.userService.obrisiKorisnika(zap.username).subscribe((ob:any)=> {
       if (ob['user']== 'ok') {
         alert('obrisano2');
       }
@@ -65,13 +65,13 @@ export class AdminzapComponent implements OnInit {
       this.podaci.azurirajZaposlenogAdmin(this.ur.username, this.ur.password,
         this.ur.ime, this.ur.prezime, this.ur.adresa, this.ur.telefon,
         this.ur.podaci, this.ur.vebsajt, this.ur.kabinet, this.ur.zvanje, this.ur.status,
-        this.ur.slika).subscribe(ob=> {
+        this.ur.slika).subscribe((ob:any)=> {
             if (ob['poruka']=='OK') {
               alert('azuriran');
             }
         })
         this.dohvZaposlene();
-   
+
   }
 
   logout() {
@@ -79,7 +79,7 @@ export class AdminzapComponent implements OnInit {
     localStorage.setItem('tipkor',"");
     this.router.navigate(['/login']);
   }
- 
+
 
 
 }

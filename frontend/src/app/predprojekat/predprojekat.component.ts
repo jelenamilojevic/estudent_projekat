@@ -18,15 +18,15 @@ export class PredprojekatComponent implements OnInit {
   }
 
 
-  naziv = localStorage.getItem('predmet');
+  naziv = localStorage.getItem('predmet')!;
 
-  projekti: Projekat[];
-  predmet: Predmet;
+  projekti: Projekat[] = [];
+  predmet!: Predmet;
   nema: boolean = true;
   nemaporuka = "Na ovom predmetu nema projekta";
 
   lista: Projekat[] = [];
-  tmp: Projekat;
+  tmp!: Projekat;
 
   dohvatiPredmet() {
     this.podaci.dohvPredmetFilter(this.naziv).subscribe((predmet: Predmet) => {
@@ -67,12 +67,12 @@ export class PredprojekatComponent implements OnInit {
       this.nema = false;
     }
   }
-  
+
  logout() {
   localStorage.setItem('korisnik',"");
   localStorage.setItem('tipkor',"");
   this.router.navigate(['/login']);
 }
- 
+
 
 }

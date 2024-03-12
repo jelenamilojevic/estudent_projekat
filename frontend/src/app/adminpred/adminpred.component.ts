@@ -17,10 +17,10 @@ export class AdminpredComponent implements OnInit {
   }
 
 
-  predmeti: Predmet[];
-  ur: Predmet;
-  izb: Predmet;
-  
+  predmeti: Predmet[]=[];
+  ur!: Predmet;
+  izb!: Predmet;
+
 
   dohvPredmete() {
     this.podaci.dohvSvePredmete().subscribe((data: Predmet[])=>{
@@ -41,12 +41,12 @@ export class AdminpredComponent implements OnInit {
    this.ur.vezbe = pr.vezbe;
    this.ur.labvezbe = pr.labvezbe;
    this.ur.komentar = pr.komentar;
-   
+
   }
 
   izbrisi(pr: Predmet) {
     this.izb = pr;
-    this.podaci.obrisiPredmet(pr.naziv).subscribe(ob=> {
+    this.podaci.obrisiPredmet(pr.naziv).subscribe((ob:any)=> {
       if (ob['user']== 'ok') {
         this.dohvPredmete();
         alert('obrisano');
@@ -56,18 +56,18 @@ export class AdminpredComponent implements OnInit {
 
 
   urediPred() {
-      this.podaci.azurirajPredmetAdmin(this.ur.naziv, this.ur.tip, this.ur.sifra,this.ur.fond, 
+      this.podaci.azurirajPredmetAdmin(this.ur.naziv, this.ur.tip, this.ur.sifra,this.ur.fond,
         this.ur.espb, this.ur.cilj, this.ur.ishod, this.ur.predavanja,
-        this.ur.vezbe, this.ur.labvezbe, this.ur.komentar).subscribe(ob=> {
+        this.ur.vezbe, this.ur.labvezbe, this.ur.komentar).subscribe((ob:any)=> {
             if (ob['poruka']=='OK') {
               alert('azuriran');
             }
         })
         this.dohvPredmete();
-   
+
   }
 
-  
+
  logout() {
   localStorage.setItem('korisnik',"");
   localStorage.setItem('tipkor',"");

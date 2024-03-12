@@ -14,7 +14,7 @@ export class ObavestenjaComponent implements OnInit {
 
   ngOnInit(): void {
     this.dohvObavestenja();
-    this.korisnik = localStorage.getItem('tipkor');
+    this.korisnik = localStorage.getItem('tipkor')!;
     if (this.korisnik == "student") {
       this.student = true;
       this.gost = false;
@@ -26,10 +26,10 @@ export class ObavestenjaComponent implements OnInit {
 
   student: boolean = false;
   gost: boolean = true;
-  korisnik: string;
+  korisnik: string = "";
 
-  obavestenja: Vesti[];
-  obav: Vesti;
+  obavestenja: Vesti[] = [];
+  obav!: Vesti;
   lista: Vesti[] = [];
 
 

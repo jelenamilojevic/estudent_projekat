@@ -16,11 +16,11 @@ export class PredvezbeComponent implements OnInit {
     this.dohvatiVezbe();
   }
 
-  naziv = localStorage.getItem('predmet');
-  vezbe: Vezbe[];
+  naziv = localStorage.getItem('predmet')!;
+  vezbe: Vezbe[] =[];
 
   lista: Vezbe[] = [];
-  tmp: Vezbe;
+  tmp!: Vezbe;
 
   dohvatiVezbe() {
     this.podaci.dohvVezbe(this.naziv).subscribe((vezbe: Vezbe[])=>{
@@ -55,7 +55,7 @@ export class PredvezbeComponent implements OnInit {
     localStorage.setItem('tipkor',"");
     this.router.navigate(['/login']);
   }
- 
+
 
 
 }
