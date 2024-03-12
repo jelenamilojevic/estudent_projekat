@@ -11,7 +11,7 @@ export class UserService {
 
   uri = 'http://localhost:4000'
 
-  login(username, password) {
+  login(username: string, password: string) {
     const data = {
       username: username,
       password: password
@@ -20,7 +20,7 @@ export class UserService {
     return this.http.post(`${this.uri}/login`,data);
   }
 
-  registruj(username,password,ime, prezime,indeks,tip,status) {
+  registruj(username: string,password: string,ime: string, prezime: string,indeks: string,tip: any,status: any) {
     const data = {
       username:username,
       password: password,
@@ -34,7 +34,7 @@ export class UserService {
   }
 
 
-  registrujZap(username,password,ime, prezime,adresa,telefon,vebsajt,podaci,zvanje,kabinet,status,slika) {
+  registrujZap(username: string,password: string,ime: string, prezime: string,adresa: string,telefon: string,vebsajt: string,podaci: any,zvanje: any,kabinet: any,status: any,slika: string) {
     const data = {
       username:username,
       password: password,
@@ -52,7 +52,7 @@ export class UserService {
     return this.http.post(`${this.uri}/registrujZap`,data);
   }
 
-  registrujKor(username,password, tip,prvi) {
+  registrujKor(username: string,password: string, tip: any,prvi: any) {
     const data = {
       username:username,
       password: password,
@@ -62,20 +62,20 @@ export class UserService {
     return this.http.post(`${this.uri}/registrujKor`,data);
   }
 
-  obrisiStudenta(username) {
+  obrisiStudenta(username: string) {
     const data = {
       username: username
     }
     return this.http.post(`${this.uri}/obrisiStudenta`,data);
   }
 
-  obrisiZaposlenog(username) {
+  obrisiZaposlenog(username: string) {
     const data = {
       username: username
     }
     return this.http.post(`${this.uri}/obrisiZaposlenog`,data);
   }
-  obrisiKorisnika(username) {
+  obrisiKorisnika(username: string) {
     const data = {
       username: username
     }
@@ -83,7 +83,7 @@ export class UserService {
   }
 
 
-  promenaLozinke(username, password,prvi) {
+  promenaLozinke(username: string, password: string,prvi: any) {
     const data = {
       username: username,
       password: password,
@@ -93,7 +93,7 @@ export class UserService {
   }
 
 
-  promenaLozinkeStud(username, password) {
+  promenaLozinkeStud(username: string, password: string) {
     const data = {
       username: username,
       password: password,
@@ -101,7 +101,7 @@ export class UserService {
     return this.http.post(`${this.uri}/promeniLozinkuStud`,data);
   }
 
-  promenaLozinkeZap(username, password) {
+  promenaLozinkeZap(username: string, password: string) {
     const data = {
       username: username,
       password: password,
@@ -109,7 +109,7 @@ export class UserService {
     return this.http.post(`${this.uri}/promeniLozinkuZap`,data);
   }
 
-  dohvatiKorisnika(username) {
+  dohvatiKorisnika(username: string) {
     const data = {
       username: username
     }

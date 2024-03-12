@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http'
 import { Obavestenje } from './model/obavestenje.model';
-import { ɵangular_packages_platform_browser_platform_browser_d } from '@angular/platform-browser';
 import { Vesti } from './model/vesti.model';
 
 @Injectable({
@@ -35,7 +34,7 @@ export class PodaciService {
     return this.http.get(`${this.uri}/dohvSveVesti`);
   }
 
-  dohvNastavno(username) {
+  dohvNastavno(username: string) {
     const data = {
       username: username
     }
@@ -43,14 +42,14 @@ export class PodaciService {
     return this.http.post(`${this.uri}/dohvNastavno`,data);
   }
 
-  dohvPredmete(username) {
+  dohvPredmete(username: string) {
     const data = {
       username: username
     }
     return this.http.post(`${this.uri}/dohvPredmete`,data);
   }
 
-  dohvPredmetFilter(naziv) {
+  dohvPredmetFilter(naziv: string) {
     const data = {
       naziv: naziv
     }
@@ -58,7 +57,7 @@ export class PodaciService {
   }
 
 
-  dohvStudenta(username) {
+  dohvStudenta(username: string) {
     const data = {
       username: username
     }
@@ -66,14 +65,14 @@ export class PodaciService {
     return this.http.post(`${this.uri}/dohvStudenta`,data);
   }
 
-  dohvDrziNaziv(naziv) {
+  dohvDrziNaziv(naziv: string) {
     const data = {
       naziv: naziv
     }
     return this.http.post(`${this.uri}/dohvDrziNaziv`,data);
   }
 
-  dohvDrziIme(username) {
+  dohvDrziIme(username: string) {
     const data = {
       username: username
     }
@@ -81,7 +80,7 @@ export class PodaciService {
   }
 
 
-dohvObavestenja(naziv) {
+dohvObavestenja(naziv: string) {
   const data = {
     naziv: naziv
   }
@@ -89,7 +88,7 @@ dohvObavestenja(naziv) {
 }
 
 
-dohvObavestenje(id) {
+dohvObavestenje(id: any) {
   const data = {
     id: id
   }
@@ -118,28 +117,28 @@ sortirajVestiPoDatumuAdmin(vesti: Vesti[]) : Vesti[] {
 }
 
 
-dohvPredavanja(naziv) {
+dohvPredavanja(naziv: string) {
   const data = {
     naziv: naziv
   }
   return this.http.post(`${this.uri}/dohvPredavanja`,data);
 }
 
-dohvVezbe(naziv) {
+dohvVezbe(naziv: string) {
   const data = {
     naziv: naziv
   }
   return this.http.post(`${this.uri}/dohvVezbe`,data);
 }
 
-dohvIspitna(naziv) {
+dohvIspitna(naziv: string) {
   const data = {
     naziv: naziv
   }
   return this.http.post(`${this.uri}/dohvIspitna`,data);
 }
 
-dohvLabVezbe(naziv) {
+dohvLabVezbe(naziv: string) {
   const data = {
     naziv: naziv
   }
@@ -147,7 +146,7 @@ dohvLabVezbe(naziv) {
 }
 
 
-dohvProjekat(naziv) {
+dohvProjekat(naziv: string) {
   const data = {
     naziv: naziv
   }
@@ -158,7 +157,7 @@ dohvProjekat(naziv) {
 
 
 
-azurirajZaposlenog(username, adresa, telefon, podaci, vebsajt, kabinet) {
+azurirajZaposlenog(username: string, adresa: string, telefon: string, podaci: any, vebsajt: string, kabinet: any) {
   const data = {
     username: username,
     adresa: adresa,
@@ -172,12 +171,12 @@ azurirajZaposlenog(username, adresa, telefon, podaci, vebsajt, kabinet) {
 }
 
 
-azurirajZaposlenogAdmin(username,password,ime,prezime, adresa, telefon, podaci, vebsajt, kabinet,zvanje,status,slika) {
+azurirajZaposlenogAdmin(username: string,password: string,ime: string,prezime: string, adresa: string, telefon: string, podaci: any, vebsajt: string, kabinet: any,zvanje: string,status:any,slika: string) {
   const data = {
     username: username,
     password: password,
     ime: ime,
-    prezime: prezime, 
+    prezime: prezime,
     adresa: adresa,
     telefon: telefon,
     podaci: podaci,
@@ -192,12 +191,12 @@ azurirajZaposlenogAdmin(username,password,ime,prezime, adresa, telefon, podaci, 
 }
 
 
-azurirajStudentaAdmin(username,password,ime,prezime, indeks,tip, status) {
+azurirajStudentaAdmin(username:string,password: string,ime: string,prezime: string, indeks: any,tip: any, status: any) {
   const data = {
     username: username,
     password: password,
     ime: ime,
-    prezime: prezime, 
+    prezime: prezime,
     indeks: indeks,
     tip: tip,
     status: status,
@@ -206,7 +205,7 @@ azurirajStudentaAdmin(username,password,ime,prezime, indeks,tip, status) {
 
 }
 
-azurirajPredmet(naziv, sifra, tip, espb, cilj, ishod) {
+azurirajPredmet(naziv: string, sifra: any, tip:any, espb: any, cilj: any, ishod: any) {
   const data = {
   naziv: naziv,
   sifra: sifra,
@@ -219,7 +218,7 @@ azurirajPredmet(naziv, sifra, tip, espb, cilj, ishod) {
 
 }
 
-azurirajPredmetAdmin(naziv,tip, sifra, fond, espb, cilj, ishod,predavanja,vezbe,labvezbe, komentar) {
+azurirajPredmetAdmin(naziv: string,tip:any, sifra:any, fond:any, espb:any, cilj:any, ishod: any,predavanja:any,vezbe:any,labvezbe:any, komentar:any) {
   const data = {
   naziv: naziv,
   tip: tip,
@@ -238,35 +237,35 @@ azurirajPredmetAdmin(naziv,tip, sifra, fond, espb, cilj, ishod,predavanja,vezbe,
 }
 
 
-obrisiPredavanja(id) {
+obrisiPredavanja(id:any) {
   const data = {
     id: id
   }
   return this.http.post(`${this.uri}/obrisiPredavanja`,data);
 }
 
-obrisiVezbe(id) {
+obrisiVezbe(id:any) {
   const data = {
     id: id
   }
   return this.http.post(`${this.uri}/obrisiVezbe`,data);
 }
 
-obrisiLab(id) {
+obrisiLab(id: any) {
   const data = {
     id: id
   }
   return this.http.post(`${this.uri}/obrisiLab`,data);
 }
 
-obrisiIspitna(id) {
+obrisiIspitna(id: any) {
   const data = {
     id: id
   }
   return this.http.post(`${this.uri}/obrisiIspitna`,data);
 }
 
-obrisiPredmet(naziv) {
+obrisiPredmet(naziv:string) {
   const data = {
     naziv: naziv
   }
@@ -274,7 +273,7 @@ obrisiPredmet(naziv) {
 }
 
 
-dodajObavestenje(naziv,tekst,datum,id, autor, naslov,fajl) {
+dodajObavestenje(naziv: string,tekst: string,datum: any,id: any, autor: any, naslov: string,fajl: any) {
   const data = {
    naziv:naziv,
    tekst: tekst,
@@ -288,7 +287,7 @@ dodajObavestenje(naziv,tekst,datum,id, autor, naslov,fajl) {
 }
 
 
-dodajDrzi(username,naziv,grupa) {
+dodajDrzi(username: string,naziv: string,grupa: any) {
   const data = {
    username: username,
    naziv:naziv,
@@ -299,7 +298,7 @@ dodajDrzi(username,naziv,grupa) {
 
 
 
-dodajPohadja(username,naziv,grupa) {
+dodajPohadja(username: string,naziv: string,grupa: any) {
   const data = {
    username: username,
    naziv:naziv,
@@ -310,7 +309,7 @@ dodajPohadja(username,naziv,grupa) {
 
 
 
-   dodajPredmet(naziv,tip, sifra, fond, espb, cilj, ishod,predavanja,vezbe,labvezbe, komentar) {
+   dodajPredmet(naziv: string,tip: any, sifra: any, fond: any, espb: any, cilj: any ,ishod: any,predavanja: any,vezbe: any,labvezbe: any, komentar: any) {
   const data = {
   naziv: naziv,
   tip: tip,
@@ -328,7 +327,7 @@ dodajPohadja(username,naziv,grupa) {
 
 }
 
-azurirajObavestenje(id,naslov,fajl,tekst,datum) {
+azurirajObavestenje(id: any,naslov: string,fajl: string,tekst: string,datum: any) {
   const data = {
     id: id,
     naslov: naslov,
