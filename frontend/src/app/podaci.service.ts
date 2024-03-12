@@ -9,6 +9,8 @@ import { Vezbe } from './model/vezbe.model';
 import { Ispitna } from './model/ispitna.model';
 import { Labvezbe } from './model/labvezbe.model';
 import { Zaposleni } from './model/zaposleni.model';
+import { Pohadja } from './model/pohadja.model';
+import { Student } from './model/student.model';
 
 @Injectable({
   providedIn: 'root'
@@ -53,7 +55,7 @@ export class PodaciService {
     const data = {
       username: username
     }
-    return this.http.post(`${this.uri}/dohvPredmete`,data);
+    return this.http.post<Pohadja[]>(`${this.uri}/dohvPredmete`,data);
   }
 
   dohvPredmetFilter(naziv: string) {
@@ -69,7 +71,7 @@ export class PodaciService {
       username: username
     }
 
-    return this.http.post(`${this.uri}/dohvStudenta`,data);
+    return this.http.post<Student>(`${this.uri}/dohvStudenta`,data);
   }
 
   dohvDrziNaziv(naziv: string) {

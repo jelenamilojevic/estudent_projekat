@@ -21,15 +21,15 @@ export class StudentComponent implements OnInit {
   }
 
 
-  
-
-  predmeti : Pohadja[];
-  predmet: Predmet;
-  username =  localStorage.getItem('korisnik');
-  student: Student;
 
 
-  
+  predmeti : Pohadja[] = [];
+  predmet!: Predmet;
+  username =  localStorage.getItem('korisnik')!;
+  student!: Student;
+
+
+
   dohvPredmete() {
     this.podaci.dohvPredmete(this.username).subscribe((pohadja:Pohadja[])=>{
 
@@ -64,7 +64,7 @@ export class StudentComponent implements OnInit {
 
 
 
-  
+
  logout() {
   localStorage.setItem('korisnik',"");
   localStorage.setItem('tipkor',"");
