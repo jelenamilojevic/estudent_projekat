@@ -21,35 +21,35 @@ export class ZappredmetiComponent implements OnInit {
     this.dohvatiPredmete();
   }
 
-  username = localStorage.getItem('korisnik');
-  predmeti: Drzi[];
-  drzi: Drzi;
-  uredi: Drzi;
-  prikaz: Predmet;
-  uredjivanje: Predmet;
+  username = localStorage.getItem('korisnik')!;
+  predmeti: Drzi[] = [];
+  drzi!: Drzi;
+  uredi!: Drzi;
+  prikaz!: Predmet;
+  uredjivanje!: Predmet;
   urediInfo = false;
   urediPredavanja = false;
   urediVezbe = false;
   urediispitna = false;
   urediLab= false;
 
-  predavanja: Predavanja[];
+  predavanja: Predavanja[] = [];
   lista: Predavanja[] = [];
-  tmp: Predavanja;
-  naziv: string;
+  tmp!: Predavanja;
+  naziv: string = "";
 
-  vezbe: Vezbe[];
+  vezbe: Vezbe[] =[];
   listav: Vezbe[] = [];
-  tmpv: Vezbe;
+  tmpv!: Vezbe;
 
-  ispitna: Ispitna[];
+  ispitna: Ispitna[] = [];
 
   listai: Ispitna[] = [];
-  tmpi: Ispitna;
+  tmpi!: Ispitna;
 
-  labvezbe: Labvezbe [];
+  labvezbe: Labvezbe [] = [];
   listal: Labvezbe[] = [];
-  tmpl: Labvezbe;
+  tmpl!: Labvezbe;
 
   nemalab: boolean = true;
   imalab = false;
@@ -181,14 +181,14 @@ export class ZappredmetiComponent implements OnInit {
 
   azuriraj() {
     this.podaci.azurirajPredmet(this.uredjivanje.naziv, this.uredjivanje.sifra,this.uredjivanje.tip, this.uredjivanje.espb,
-      this.uredjivanje.cilj, this.uredjivanje.ishod).subscribe(ob=> {
+      this.uredjivanje.cilj, this.uredjivanje.ishod).subscribe((ob: any)=> {
           if (ob['poruka']=='OK') {
             alert('uspesno azurirano');
           }
       })
   }
 
-  
+
   dohvatiPredavanja() {
     this.podaci.dohvPredavanja(this.naziv).subscribe((predavanja: Predavanja[])=>{
       if (predavanja) {
@@ -213,7 +213,7 @@ export class ZappredmetiComponent implements OnInit {
     });
   }
 
-  
+
   dohvatiIspitna() {
     this.podaci.dohvIspitna(this.naziv).subscribe((ispitna: Ispitna[])=>{
       if (ispitna) {
@@ -306,12 +306,12 @@ export class ZappredmetiComponent implements OnInit {
         this.listai.push(this.tmpi);
       }
     }
-  
+
 
 
   ukloni(p: Predavanja) {
     if (this.username == p.autor) {
-      this.podaci.obrisiPredavanja(p.id).subscribe(ob=> {
+      this.podaci.obrisiPredavanja(p.id).subscribe((ob:any)=> {
         if (ob['user']== 'ok') {
           this.dohvatiPredavanja();
           alert('obrisano');
@@ -325,7 +325,7 @@ export class ZappredmetiComponent implements OnInit {
 
   ukloniv(v: Vezbe) {
     if (this.username == v.autor) {
-      this.podaci.obrisiVezbe(v.id).subscribe(ob=> {
+      this.podaci.obrisiVezbe(v.id).subscribe((ob:any)=> {
         if (ob['user']== 'ok') {
           this.dohvatiVezbe();
           alert('obrisano');
@@ -339,7 +339,7 @@ export class ZappredmetiComponent implements OnInit {
 
   uklonilab(l: Labvezbe) {
     if (this.username == l.autor) {
-      this.podaci.obrisiLab(l.id).subscribe(ob=> {
+      this.podaci.obrisiLab(l.id).subscribe((ob:any)=> {
         if (ob['user']== 'ok') {
           this.dohvatiLabVezbe();
           alert('obrisano');
@@ -353,7 +353,7 @@ export class ZappredmetiComponent implements OnInit {
 
   ukloniisp(i: Ispitna) {
     if (this.username == i.autor) {
-      this.podaci.obrisiIspitna(i.id).subscribe(ob=> {
+      this.podaci.obrisiIspitna(i.id).subscribe((ob:any)=> {
         if (ob['user']== 'ok') {
           this.dohvatiIspitna();
           alert('obrisano');
@@ -365,7 +365,7 @@ export class ZappredmetiComponent implements OnInit {
   }
 
 
-  
+
  logout() {
   localStorage.setItem('korisnik',"");
   localStorage.setItem('tipkor',"");

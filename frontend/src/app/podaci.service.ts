@@ -2,6 +2,12 @@ import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http'
 import { Obavestenje } from './model/obavestenje.model';
 import { Vesti } from './model/vesti.model';
+import { Drzi } from './model/drzi.model';
+import { Predmet } from './model/predmet.model';
+import { Predavanja } from './model/predavanja.model';
+import { Vezbe } from './model/vezbe.model';
+import { Ispitna } from './model/ispitna.model';
+import { Labvezbe } from './model/labvezbe.model';
 
 @Injectable({
   providedIn: 'root'
@@ -53,7 +59,7 @@ export class PodaciService {
     const data = {
       naziv: naziv
     }
-    return this.http.post(`${this.uri}/dohvPredmetFilter`,data);
+    return this.http.post<Predmet>(`${this.uri}/dohvPredmetFilter`,data);
   }
 
 
@@ -76,7 +82,7 @@ export class PodaciService {
     const data = {
       username: username
     }
-    return this.http.post(`${this.uri}/dohvDrziIme`,data);
+    return this.http.post<Drzi[]>(`${this.uri}/dohvDrziIme`,data);
   }
 
 
@@ -121,28 +127,28 @@ dohvPredavanja(naziv: string) {
   const data = {
     naziv: naziv
   }
-  return this.http.post(`${this.uri}/dohvPredavanja`,data);
+  return this.http.post<Predavanja[]>(`${this.uri}/dohvPredavanja`,data);
 }
 
 dohvVezbe(naziv: string) {
   const data = {
     naziv: naziv
   }
-  return this.http.post(`${this.uri}/dohvVezbe`,data);
+  return this.http.post<Vezbe[]>(`${this.uri}/dohvVezbe`,data);
 }
 
 dohvIspitna(naziv: string) {
   const data = {
     naziv: naziv
   }
-  return this.http.post(`${this.uri}/dohvIspitna`,data);
+  return this.http.post<Ispitna[]>(`${this.uri}/dohvIspitna`,data);
 }
 
 dohvLabVezbe(naziv: string) {
   const data = {
     naziv: naziv
   }
-  return this.http.post(`${this.uri}/dohvLab`,data);
+  return this.http.post<Labvezbe[]>(`${this.uri}/dohvLab`,data);
 }
 
 
