@@ -8,6 +8,7 @@ import { Predavanja } from './model/predavanja.model';
 import { Vezbe } from './model/vezbe.model';
 import { Ispitna } from './model/ispitna.model';
 import { Labvezbe } from './model/labvezbe.model';
+import { Zaposleni } from './model/zaposleni.model';
 
 @Injectable({
   providedIn: 'root'
@@ -45,7 +46,7 @@ export class PodaciService {
       username: username
     }
 
-    return this.http.post(`${this.uri}/dohvNastavno`,data);
+    return this.http.post<Zaposleni>(`${this.uri}/dohvNastavno`,data);
   }
 
   dohvPredmete(username: string) {

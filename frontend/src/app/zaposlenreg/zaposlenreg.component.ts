@@ -16,8 +16,8 @@ export class ZaposlenregComponent implements OnInit {
     this.dohvatiZap();
   }
 
-  username = localStorage.getItem('korisnik');
-  zaposleni: Zaposleni;
+  username = localStorage.getItem('korisnik')!;
+  zaposleni!: Zaposleni;
 
   dohvatiZap() {
     this.podaci.dohvNastavno(this.username).subscribe((zaposleni: Zaposleni)=>{
@@ -31,7 +31,7 @@ export class ZaposlenregComponent implements OnInit {
 
   azuriraj() {
     this.podaci.azurirajZaposlenog(this.zaposleni.username, this.zaposleni.adresa,
-      this.zaposleni.telefon, this.zaposleni.podaci, this.zaposleni.vebsajt, this.zaposleni.kabinet).subscribe(ob=> {
+      this.zaposleni.telefon, this.zaposleni.podaci, this.zaposleni.vebsajt, this.zaposleni.kabinet).subscribe((ob:any)=> {
           if (ob['poruka']=='OK') {
             alert('azurirano');
           }
