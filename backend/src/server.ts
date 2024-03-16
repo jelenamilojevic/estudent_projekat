@@ -38,9 +38,11 @@ router.route('/login').post((req,res) => {
     let username = req.body.username;
     let password = req.body.password;
 
-    korisnik.findOne({'username': username, 'password':password}, (err, korisnik) => {
-        if (err) console.log(err);
-        else res.json(korisnik);
+    korisnik.findOne({'username': username, 'password':password})
+    .then((korisnik) => {
+        res.json(korisnik);
+    }).catch((err)=> {
+        console.log(err);
     });
 });
 
@@ -115,61 +117,51 @@ router.route('/registrujKor').post((req,res) => {
 });
 
 router.route('/dohvSveZaposlene').get((req,res)=> {
-    zaposleni.find({},(err,zaposleni)=> {
-        if (err) {
-            console.log(err);
-        }
-        else {
-            res.json(zaposleni);
-        }
+    zaposleni.find({})
+    .then((zaposleni) => {
+        res.json(zaposleni);
+    }).catch((err)=> {
+        console.log(err);
     });
 });
 
 
 router.route('/dohvSvaObavestenja').get((req,res)=> {
-    obavestenja.find({},(err,obavestenja)=> {
-        if (err) {
-            console.log(err);
-        }
-        else {
-            res.json(obavestenja);
-        }
+    obavestenja.find({})
+    .then((obavestenja)=> {
+        res.json(obavestenja);
+    }).catch((err)=> {
+        console.log(err);
     });
 });
 
 
 router.route('/dohvSveStudente').get((req,res)=> {
-    student.find({},(err,student)=> {
-        if (err) {
-            console.log(err);
-        }
-        else {
-            res.json(student);
-        }
+    student.find({})
+    .then((student)=> {
+        res.json(student);
+    }).catch((err)=> {
+        console.log(err);
     });
 });
 
 
 router.route('/dohvSvePredmete').get((req,res)=> {
-    predmet.find({},(err,predmet)=> {
-        if (err) {
-            console.log(err);
-        }
-        else {
-            res.json(predmet);
-        }
+    predmet.find({})
+    .then((predmet)=> {
+        res.json(predmet);
+    }).catch((err)=> {
+        console.log(err);
     });
 });
 
 
 router.route('/dohvSveVesti').get((req,res)=> {
-    vesti.find({},(err,vesti)=> {
-        if (err) {
-            console.log(err);
-        }
-        else {
-            res.json(vesti);
-        }
+    vesti.find({})
+    .then((vesti)=> {
+        res.json(vesti);
+    }).catch((err)=> {
+        console.log(err);
     });
 });
 
@@ -178,156 +170,145 @@ router.route('/dohvSveVesti').get((req,res)=> {
 
 router.route('/dohvNastavno').post((req,res) => {
     let username = req.body.username;
-    zaposleni.findOne({'username': username}, (err,zaposleni)=> {
-        if (err) {
-            console.log(err);
-        } else {
-            res.json(zaposleni);
-        }
+    zaposleni.findOne({'username': username})
+    .then((zaposleni)=> {
+        res.json(zaposleni);
+    }).catch((err)=> {
+        console.log(err);
     });
 });
 
 
 router.route('/dohvPredmete').post((req,res)=> {
     let username = req.body.username;
-    pohadja.find({'username': username},(err,pohadja)=> {
-        if (err) {
-            console.log(err);
-        }else {
-            res.json(pohadja);
-        }
+    pohadja.find({'username': username})
+    .then((pohadja)=> {
+        res.json(pohadja);
+    }).catch((err)=> {
+        console.log(err);
     });
 });
 
 router.route('/dohvPredmetFilter').post((req,res)=> {
     let naziv = req.body.naziv;
-    predmet.findOne({'naziv': naziv},(err,predmet)=> {
-        if (err) {
-            console.log(err);
-        }else {
-            res.json(predmet);
-        }
+    predmet.findOne({'naziv': naziv})
+    .then((predmet)=> {
+        res.json(predmet);
+    }).catch((err)=> {
+        console.log(err);
     });
 });
 
 router.route('/dohvStudenta').post((req,res)=> {
     let username = req.body.username;
-    student.findOne({'username': username},(err,student)=> {
-        if (err) {
-            console.log(err);
-        }else {
-            res.json(student);
-        }
+    student.findOne({'username': username})
+    .then((student)=> {
+        res.json(student);
+    }).catch((err)=> {
+        console.log(err);
     });
 });
 
 router.route('/dohvKorisnika').post((req,res) => {
     let username = req.body.username;
 
-    korisnik.findOne({'username': username}, (err, korisnik) => {
-        if (err) console.log(err);
-        else res.json(korisnik);
+    korisnik.findOne({'username': username})
+    .then((korisnik)=> {
+        res.json(korisnik);
+    }).catch((err)=> {
+        console.log(err);
     });
 });
 
 router.route('/dohvDrziNaziv').post((req,res)=> {
     let naziv = req.body.naziv;
-    drzi.find({'naziv': naziv},(err,drzi)=> {
-        if (err) {
-            console.log(err);
-        }else {
-            res.json(drzi);
-        }
+    drzi.find({'naziv': naziv})
+    .then((drzi)=> {
+        res.json(drzi);
+    }).catch((err)=> {
+        console.log(err);
     });
 });
 
 router.route('/dohvDrziIme').post((req,res)=> {
     let username = req.body.username;
-    drzi.find({'username': username},(err,drzi)=> {
-        if (err) {
-            console.log(err);
-        }else {
-            res.json(drzi);
-        }
+    drzi.find({'username': username})
+    .then((drzi)=> {
+        res.json(drzi);
+    }).catch((err)=> {
+        console.log(err);
     });
 });
 
 router.route('/dohvObavestenja').post((req,res)=> {
     let naziv = req.body.naziv;
-    obavestenja.find({'naziv': naziv},(err,obavestenja)=> {
-        if (err) {
-            console.log(err);
-        }else {
-            res.json(obavestenja);
-        }
+    obavestenja.find({'naziv': naziv})
+    .then((obavestenja)=> {
+        res.json(obavestenja);
+    }).catch((err)=> {
+        console.log(err);
     });
 });
 
 router.route('/dohvObavestenje').post((req,res)=> {
     let id = req.body.id;
-    obavestenja.findOne({'id': id},(err,obavestenja)=> {
-        if (err) {
-            console.log(err);
-        }else {
-            res.json(obavestenja);
-        }
+    obavestenja.findOne({'id': id})
+    .then((obavestenja)=> {
+        res.json(obavestenja);
+    }).catch((err)=> {
+        console.log(err);
     });
 });
 
 
 router.route('/dohvPredavanja').post((req,res)=> {
     let naziv = req.body.naziv;
-    predavanja.find({'naziv': naziv},(err,predavanja)=> {
-        if (err) {
-            console.log(err);
-        }else {
-            res.json(predavanja);
-        }
+    predavanja.find({'naziv': naziv})
+    .then((predavanja)=> {
+        res.json(predavanja);
+    }).catch((err)=> {
+        console.log(err);
     });
 });
 
 router.route('/dohvVezbe').post((req,res)=> {
     let naziv = req.body.naziv;
-    vezbe.find({'naziv': naziv},(err,vezbe)=> {
-        if (err) {
-            console.log(err);
-        }else {
-            res.json(vezbe);
-        }
+    vezbe.find({'naziv': naziv})
+    .then((vezbe)=> {
+        res.json(vezbe);
+    }).catch((err)=> { 
+        console.log(err);
     });
 });
 
 router.route('/dohvIspitna').post((req,res)=> {
     let naziv = req.body.naziv;
-    ispitna.find({'naziv': naziv},(err,ispitna)=> {
-        if (err) {
-            console.log(err);
-        }else {
-            res.json(ispitna);
-        }
+    ispitna.find({'naziv': naziv})
+    .then((ispitna)=> {
+        res.json(ispitna);
+    }).catch((err)=> {
+        console.log(err);
     });
 });
 
 router.route('/dohvLab').post((req,res)=> {
     let naziv = req.body.naziv;
-    labvezbe.find({'naziv': naziv},(err,labvezbe)=> {
-        if (err) {
-            console.log(err);
-        }else {
-            res.json(labvezbe);
-        }
+    labvezbe.find({'naziv': naziv})
+    .then((labvezbe)=> {
+        res.json(labvezbe);
+    }).catch(err=> {
+        console.log(err);
     });
 });
 
 
 router.route('/dohvProjekat').post((req,res)=> {
     let naziv = req.body.naziv;
-    projekat.find({'naziv': naziv},(err,projekat)=> {
-        if (err) {
-            console.log(err);
-        }else {
-            res.json(projekat);
-        }
+    projekat.find({'naziv': naziv})
+    .then((projekat)=> {
+        res.json(projekat);
+    }).catch((err)=> {
+        console.log(err);
     });
 });
 
