@@ -12,7 +12,7 @@ import { NaukaComponent } from './nauka/nauka.component';
 import { KontaktComponent } from './kontakt/kontakt.component';
 import { LoginComponent } from './login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { NgImageSliderModule } from 'ng-image-slider';
+//import { NgImageSliderModule } from 'ng-image-slider';
 import { StudentComponent } from './student/student.component';
 import { AdminComponent } from './admin/admin.component';
 import { ZaposlenregComponent } from './zaposlenreg/zaposlenreg.component';
@@ -32,14 +32,15 @@ import { PredprojekatComponent } from './predprojekat/predprojekat.component';
 import { ZappredmetiComponent } from './zappredmeti/zappredmeti.component';
 import { ZapdodavanjeComponent } from './zapdodavanje/zapdodavanje.component';
 import { ZapizmenaComponent } from './zapizmena/zapizmena.component';
-import {MatDatepickerModule} from '@angular/material/datepicker';
+//import {MatDatepickerModule} from '@angular/material/datepicker';
 import { ZapizmenaformaComponent } from './zapizmenaforma/zapizmenaforma.component';
 import { AdminzapComponent } from './adminzap/adminzap.component';
 import { AdminstudComponent } from './adminstud/adminstud.component';
 import { AdminpredComponent } from './adminpred/adminpred.component';
 import { AdminplanComponent } from './adminplan/adminplan.component';
 import { PromenalozinkeComponent } from './promenalozinke/promenalozinke.component';
-import { SpiskoviComponent } from './spiskovi/spiskovi.component'; 
+import { SpiskoviComponent } from './spiskovi/spiskovi.component';
+import { NgImageSliderModule } from 'ng-image-slider';
 
 @NgModule({
   declarations: [
@@ -82,10 +83,10 @@ import { SpiskoviComponent } from './spiskovi/spiskovi.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    NgImageSliderModule,
     ReactiveFormsModule,
     HttpClientModule,
-    MatDatepickerModule
+    NgImageSliderModule
+    //dodaj     NgImageSliderModule,     MatDatepickerModule
   ],
   providers: [],
   bootstrap: [AppComponent]
