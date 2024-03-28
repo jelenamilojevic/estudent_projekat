@@ -4,7 +4,7 @@ This is a small project implemented using MEAN stack, for a University assignmen
 
 ## Project setup
 
-1. Clone project 
+1. Clone project and run 'npm install'
 2. Create new database in mongo called 'estudent_projekat'
 3. Setup database (import files from database folder into database)
 
