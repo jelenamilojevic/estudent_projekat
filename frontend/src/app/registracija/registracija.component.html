@@ -1,0 +1,113 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <title>ETF Beograd</title>
+  <meta name="description" content="website description" />
+  <meta name="keywords" content="website keywords, website keywords" />
+  <meta http-equiv="content-type" content="text/html; charset=windows-1252" />
+</head>
+
+<body>
+  <div id="main">
+    <div id="header">
+      <div id="logo">
+        <div id="logo_text">
+          <!-- class="logo_colour", allows you to change the colour of the text -->
+          <h1><a href="index.html">ETF <span class="logo_colour">Beograd</span></a></h1>
+          <h2>Katedra za računarsku tehniku i informatiku</h2>
+        </div>
+      </div>
+      <div id="menubar">
+        <ul id="menu">
+          <!-- put class="selected" in the li tag for the selected page - to highlight which page you're on -->
+          <li><a routerLink='/login'>Početna</a></li>
+          <li><a routerLink='/zaposleni'>Zaposleni</a></li>
+          <li><a routerLink='/obavestenja'>Obaveštenja</a></li>
+          <li><a routerLink='/osnovne'>Osnovne studije</a></li>
+          <li><a routerLink='/master'>Master studije</a></li>
+          <li><a routerLink='/projekti'>Projekti</a></li>
+          <li><a routerLink='/nauka'>Nauka</a></li>
+          <li><a routerLink='/kontakt'>Kontakt</a></li>
+        </ul>
+      </div>
+    </div>
+    <div id="content_header"></div>
+    <div id="site_content">
+      <div id = "banner">
+
+      </div>
+	  <div id="sidebar_container">
+
+        <div class="sidebar">
+          <div class="sidebar_top"></div>
+          <div class="sidebar_item">
+            <h3>Korisni linkovi</h3>
+            <ul>
+              <li><a href="http://rti.etf.bg.ac.rs/">RTI</a></li>
+              <li><a href="https://www.etf.bg.ac.rs/">ETF</a></li>
+              <li><a href="http://rti.etf.bg.ac.rs/rti/ir4pia/">PIA</a></li>
+            </ul>
+          </div>
+          <div class="sidebar_base"></div>
+        </div>
+
+      </div>
+      <div id="content">
+
+       <h1>Registrujte se: </h1>
+       <hr>
+       <form>
+        <div class="form_settings">
+          <p><span>Korisnicko ime: </span>
+              <input type="text"  name="username" [(ngModel)]='username' class = "form-control" required #korp="ngModel">
+          </p>
+          <p><span>Lozinka: </span>
+            <input type="password" name="password" [(ngModel)]='password' class = "form-control" required #passp="ngModel"/>
+          </p>
+          <p><span>Ime: </span>
+            <input type="text"  name="ime" [(ngModel)]='ime' class = "form-control" required #imep="ngModel">
+          </p>
+          <p><span>Prezime: </span>
+            <input type="text"  name="prezime" [(ngModel)]='prezime' class = "form-control" required #prezp="ngModel">
+          </p>
+          <p><span>Indeks: </span>
+            <input type="text"  name="indeks" [(ngModel)]='indeks' class = "form-control" required #indp="ngModel">
+          </p>
+          <p><span>Tip</span>
+            <select name="tip" [(ngModel)]='tip' class = "form-control" required #tipp="ngModel">
+              <option value="d">osnovne (d)</option>
+              <option value="m">master (m)</option>
+              <option value="p">doktorske (p)</option>
+            </select>
+          </p>
+          <p><span>Status</span>
+            <select name="status" [(ngModel)]='status' class = "form-control" required #statp="ngModel">
+              <option value="aktivan">Aktivan</option>
+              <option value="neaktivan">Neaktivan</option>
+            </select>
+          </p>
+          <p style="padding-top: 15px"><span>&nbsp;</span>
+            <input class="submit" type="submit" name="submit" value="Registruj se" (click)='registruj()'/>
+        </p>
+        </div>
+      </form>
+
+      <div *ngIf="korp.errors?.['required'] && (korp.dirty || korp.touched)">
+         Unesite korisnicko ime
+      </div>
+
+
+
+
+      <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/><br/><br/>
+      </div>
+    </div>
+    <div id="content_footer"></div>
+    <div id="footer">
+
+      <p>Elektrotehnički fakultet u Beogradu &copy; 2021 </p>
+    </div>
+  </div>
+</body>
+</html>

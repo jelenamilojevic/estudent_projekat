@@ -1,0 +1,172 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <title>ETF Beograd</title>
+  <meta name="description" content="website description" />
+  <meta name="keywords" content="website keywords, website keywords" />
+  <meta http-equiv="content-type" content="text/html; charset=windows-1252" />
+</head>
+
+<body>
+  <div id="main">
+    <div id="header">
+      <div id="logo">
+        <div id="logo_text">
+          <!-- class="logo_colour", allows you to change the colour of the text -->
+          <h1><a href="index.html">ETF <span class="logo_colour">Beograd</span></a></h1>
+          <h2>Katedra za računarsku tehniku i informatiku</h2>
+        </div>
+      </div>
+      <div id="menubar">
+        <ul id="menu">
+          <!-- put class="selected" in the li tag for the selected page - to highlight which page you're on -->
+ 
+          <li><a routerLink='/admin'>Dodavanje</a></li>
+          <li><a routerLink='/adminzap'>Zaposleni</a></li>
+          <li><a routerLink='/adminstud'>Studenti</a></li>
+          <li><a routerLink='/adminpred'>Predmeti</a></li>
+          <li class="selected"><a routerLink='/adminplan'>Plan angazovanja</a></li>
+        </ul>
+      </div>
+    </div>
+    <div id="content_header"></div>
+    <div id="site_content">
+      <div id="banner">
+       
+      </div>
+	  <div id="sidebar_container">
+
+      <div class="sidebar">
+        <div class="sidebar_top"></div> 
+        <div class="sidebar_item">
+        <h3>Izlogujte se: </h3>
+       <form>
+         
+           <input class="submit" type="submit" name="logout" value="Logout" (click)='logout()'/>
+      
+       </form>
+          
+        </div>
+        <div class="sidebar_base"></div>
+      </div>  
+        
+        
+        <div class="sidebar">
+          <div class="sidebar_top"></div> 
+          <div class="sidebar_item">
+            <h3>Korisni linkovi</h3>
+            <ul>
+              <li><a href="http://rti.etf.bg.ac.rs/">RTI</a></li>
+              <li><a href="https://www.etf.bg.ac.rs/">ETF</a></li>
+              <li><a href="http://rti.etf.bg.ac.rs/rti/ir4pia/">PIA</a></li>
+            </ul>
+          </div>
+          <div class="sidebar_base"></div>
+        </div>
+        
+      </div>
+      <div id="content">
+       
+      
+
+      <h1>Plan angazovanja  </h1>
+       <hr>
+       <h1>Dodaj zaposlenog na predmet: </h1>
+       <h1>   </h1>
+
+       <form >
+        <div class="form_settings">
+           
+            <p><span>Predmet</span>
+                <select name="predmet" [(ngModel)]='drzi.naziv'>
+             
+                  <option *ngFor='let p of predmeti' value="{{p.naziv}}">{{p.naziv}}</option>
+               
+                </select>
+            </p>
+
+            <p><span>Zaposleni</span>
+              <select name="zaposleni" [(ngModel)]='drzi.username'>
+           
+                <option *ngFor='let z of zaposleni' value="{{z.username}}">{{z.username}}</option>
+             
+              </select>
+          </p>
+
+          <p><span>Grupa</span>
+            <select name="grupa" [(ngModel)]='drzi.grupa'>
+              <option value="P1">P1</option>
+              <option value="P2">P2</option>
+              <option value="P3">P3</option>
+              <option value="V1">V1</option>
+              <option value="V2">V2</option>
+              <option value="V3">V3</option>
+            </select>
+          </p>
+           
+            <p style="padding-top: 15px"><span>&nbsp;</span>
+                <input class="submit" type="submit" name="submit" value="Dodaj" (click)='dodajdrzi()'/>
+            </p>
+
+        </div>
+      </form>
+        
+        <br/>
+        <hr>
+        <br/>
+
+        <h1>Dodaj studenta na predmet</h1>
+        <h1>   </h1>
+        <form >
+          <div class="form_settings">
+             
+              <p><span>Predmet</span>
+                  <select name="predmet" [(ngModel)]='pohadja.naziv'>
+               
+                    <option *ngFor='let p of predmeti' value="{{p.naziv}}">{{p.naziv}}</option>
+                 
+                  </select>
+              </p>
+  
+              <p><span>Zaposleni</span>
+                <select name="studenti" [(ngModel)]='pohadja.username'>
+             
+                  <option *ngFor='let s of studenti' value="{{s.username}}">{{s.username}}</option>
+               
+                </select>
+            </p>
+  
+            <p><span>Grupa</span>
+              <select name="grupa" [(ngModel)]='pohadja.grupa'>
+                <option value="P1">P1</option>
+                <option value="P2">P2</option>
+                <option value="P3">P3</option>
+                <option value="V1">V1</option>
+                <option value="V2">V2</option>
+                <option value="V3">V3</option>
+              </select>
+            </p>
+             
+              <p style="padding-top: 15px"><span>&nbsp;</span>
+                  <input class="submit" type="submit" name="submit" value="Dodaj" (click)='dodajpohadja()'/>
+              </p>
+  
+          </div>
+        </form>
+        
+      </div>
+    </div>
+    <div id="content_footer"></div>
+    <div id="footer">
+
+      <p>Elektrotehnički fakultet u Beogradu &copy; 2021 </p>
+    </div>
+  </div>
+</body>
+</html>
+
+
+
+
+

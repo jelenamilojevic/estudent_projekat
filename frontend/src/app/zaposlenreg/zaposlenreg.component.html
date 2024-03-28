@@ -1,0 +1,145 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <title>ETF Beograd</title>
+  <meta name="description" content="website description" />
+  <meta name="keywords" content="website keywords, website keywords" />
+  <meta http-equiv="content-type" content="text/html; charset=windows-1252" />
+</head>
+
+<body>
+  <div id="main">
+    <div id="header">
+      <div id="logo">
+        <div id="logo_text">
+          <!-- class="logo_colour", allows you to change the colour of the text -->
+          <h1><a href="index.html">ETF <span class="logo_colour">Beograd</span></a></h1>
+          <h2>Katedra za računarsku tehniku i informatiku</h2>
+        </div>
+      </div>
+      <div id="menubar">
+        <ul id="menu">
+          <!-- put class="selected" in the li tag for the selected page - to highlight which page you're on -->
+          <li class="selected"><a routerLink='/zaposlenreg'>Pocetna</a></li>
+          <li><a routerLink='/zappredmeti'>Predmeti</a></li>
+          <li><a routerLink='/zapdodavanje'>Dodavanje vesti</a></li>
+          <li><a routerLink='/zapizmena'>Izmena vesti</a></li>
+        </ul>
+      </div>
+    </div>
+    <div id="content_header"></div>
+    <div id="site_content">
+      <div id="banner">
+       
+      </div>
+	  <div id="sidebar_container">
+
+        <div class="sidebar">
+          <div class="sidebar_top"></div>
+          <div class="sidebar_item">
+            <!-- insert your sidebar items here -->
+           
+            <h2>Moji podaci: </h2>
+            <h3>Username: {{zaposleni.username}}</h3>
+            <h3>Ime: {{zaposleni.ime}}</h3>
+            <h3>Prezime: {{zaposleni.prezime}}</h3>
+            <h3>Adresa: {{zaposleni.adresa}}</h3>
+            <h3>Telefon: {{zaposleni.telefon}}</h3>
+            <h3 *ngIf="zaposleni.vebsajt">Veb sajt: <a href="{{zaposleni.vebsajt}}">{{zaposleni.vebsajt}}</a></h3>
+            <h3>Podaci: {{zaposleni.podaci}}</h3>
+            <h3>Zvanje: {{zaposleni.zvanje}}</h3>
+            <h3>Kabinet: {{zaposleni.kabinet}}</h3>
+            <h3>Status: {{zaposleni.status}}</h3>
+          </div>
+          <div class="sidebar_base"></div>
+        </div>
+
+        <div class="sidebar">
+          <div class="sidebar_top"></div> 
+          <div class="sidebar_item">
+          <h3>Izlogujte se: </h3>
+         <form>
+           
+             <input class="submit" type="submit" name="logout" value="Logout" (click)='logout()'/>
+        
+         </form>
+            
+          </div>
+          <div class="sidebar_base"></div>
+        </div> 
+
+        <div class="sidebar">
+          <div class="sidebar_top"></div> 
+          <div class="sidebar_item">
+         
+          <a routerLink='/promenalozinke'> <h1>Promena lozinke</h1></a>
+            
+          </div>
+          <div class="sidebar_base"></div>
+        </div> 
+  
+  
+        
+        
+      </div>
+      <div id="content">
+
+        <div>
+          <img src = "../../assets/{{zaposleni.slika}}">
+        </div>
+       
+       
+
+        <h1>Uredi podatke: </h1>
+
+        <form >
+            <div class="form_settings">
+              <p><span>Adresa </span>
+    
+                  <input  type="text"  name="adresa" [(ngModel)]='zaposleni.adresa'/>
+                  
+              </p>
+              <p><span>Telefon </span>
+    
+                <input  type="text"  name="telefon" [(ngModel)]='zaposleni.telefon' />
+                
+            </p>
+            <p><span>Podaci </span>
+    
+                <input  type="text"  name="podaci" [(ngModel)]='zaposleni.podaci'/>
+                
+            </p>
+            <p><span>Veb sajt </span>
+    
+                <input  type="text"  name="vebsajt" [(ngModel)]='zaposleni.vebsajt' />
+                
+            </p>
+            <p><span>Kabinet </span>
+    
+                <input  type="text"  name="kabinet" [(ngModel)]='zaposleni.kabinet' />
+                
+            </p>
+
+              <p style="padding-top: 15px">
+                <span>&nbsp;</span>
+                <input class="submit" type="submit"  value="Azuriraj" (click)='azuriraj()'/>
+              </p>
+ 
+            </div>
+          </form>
+
+          
+      
+      </div>
+    </div>
+    <div id="content_footer"></div>
+    <div id="footer">
+
+      <p>Elektrotehnički fakultet u Beogradu &copy; 2021 </p>
+    </div>
+  </div>
+</body>
+</html>
+
+

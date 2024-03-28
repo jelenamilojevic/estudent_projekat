@@ -1,0 +1,120 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <title>ETF Beograd</title>
+  <meta name="description" content="website description" />
+  <meta name="keywords" content="website keywords, website keywords" />
+  <meta http-equiv="content-type" content="text/html; charset=windows-1252" />
+</head>
+
+<body>
+  <div id="main">
+    <div id="header">
+      <div id="logo">
+        <div id="logo_text">
+          <!-- class="logo_colour", allows you to change the colour of the text -->
+          <h1><a href="index.html">ETF <span class="logo_colour">Beograd</span></a></h1>
+          <h2>Katedra za računarsku tehniku i informatiku</h2>
+        </div>
+      </div>
+      <div id="menubar">
+        <ul id="menu">
+          <!-- put class="selected" in the li tag for the selected page - to highlight which page you're on -->
+          <li><a routerLink='/zaposlenreg'>Profil</a></li>
+          <li><a routerLink='/zappredmeti'>Predmeti</a></li>
+          <li class="selected"><a routerLink='/zapdodavanje'>Dodavanje vesti</a></li>
+          <li><a routerLink='/zapizmena'>Izmena vesti</a></li>
+        </ul>
+      </div>
+    </div>
+    <div id="content_header"></div>
+    <div id="site_content">
+      <div id="banner">
+
+      </div>
+	  <div id="sidebar_container">
+      <div class="sidebar">
+        <div class="sidebar_top"></div>
+        <div class="sidebar_item">
+        <h3>Izlogujte se: </h3>
+       <form>
+
+           <input class="submit" type="submit" name="logout" value="Logout" (click)='logout()'/>
+
+       </form>
+
+        </div>
+        <div class="sidebar_base"></div>
+      </div>
+
+        <div class="sidebar">
+          <div class="sidebar_top"></div>
+          <div class="sidebar_item">
+            <h3>Korisni linkovi</h3>
+            <ul>
+              <li><a href="http://rti.etf.bg.ac.rs/">RTI</a></li>
+              <li><a href="https://www.etf.bg.ac.rs/">ETF</a></li>
+              <li><a href="http://rti.etf.bg.ac.rs/rti/ir4pia/">PIA</a></li>
+            </ul>
+          </div>
+          <div class="sidebar_base"></div>
+        </div>
+
+      </div>
+      <div id="content">
+
+        <h1>Dodaj obaveštenje:</h1>
+
+        <form >
+            <div class="form_settings">
+                <p><span>Naslov: </span>
+                    <input  type="text"  name="naslov" [(ngModel)]='obavestenje.naslov'/>
+                </p>
+                <p><span>Predmet</span>
+                    <select name="naziv" [(ngModel)]='obavestenje.naziv'>
+
+                      <option *ngFor='let d of drzi' value="{{d.naziv}}">{{d.naziv}}</option>
+
+                    </select>
+                </p>
+                <p><span>Fajl: </span>
+                  <input type="file"  name="fajl" [(ngModel)]='fileUpload' (change)="handleFileInput($event)">
+                </p>
+                <p><span>Tekst: </span>
+                    <textarea rows="8" cols="50"  type="text"  name="tekst" [(ngModel)]='obavestenje.tekst'></textarea>
+                </p>
+                <p><span>Datum: </span>
+                    <input  type="date" name='datum' [(ngModel)] = 'datum'>
+                </p>
+
+                <p style="padding-top: 15px"><span>&nbsp;</span>
+                    <input class="submit" type="submit" name="submit" value="Dodaj" (click)='dodaj()'/>
+                </p>
+
+            </div>
+          </form>
+
+        <div>
+
+            <h1></h1>
+            <h1></h1>
+            <h1></h1>
+            <h1></h1>
+            <h1></h1>
+        </div>
+
+
+      </div>
+    </div>
+    <div id="content_footer"></div>
+    <div id="footer">
+
+      <p>Elektrotehnički fakultet u Beogradu &copy; 2021 </p>
+    </div>
+  </div>
+</body>
+</html>
+
+
+

@@ -1,0 +1,292 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <title>ETF Beograd</title>
+  <meta name="description" content="website description" />
+  <meta name="keywords" content="website keywords, website keywords" />
+  <meta http-equiv="content-type" content="text/html; charset=windows-1252" />
+</head>
+
+<body>
+  <div id="main">
+    <div id="header">
+      <div id="logo">
+        <div id="logo_text">
+          <!-- class="logo_colour", allows you to change the colour of the text -->
+          <h1><a href="index.html">ETF <span class="logo_colour">Beograd</span></a></h1>
+          <h2>Katedra za računarsku tehniku i informatiku</h2>
+        </div>
+      </div>
+      <div id="menubar">
+        <ul id="menu">
+          <!-- put class="selected" in the li tag for the selected page - to highlight which page you're on -->
+       
+          <li><a routerLink='/zaposlenreg'>Profil</a></li>
+          <li class="selected"><a routerLink='/zappredmeti'>Predmeti</a></li>
+          <li><a routerLink='/zapdodavanje'>Dodavanje vesti</a></li>
+          <li><a routerLink='/zapizmena'>Izmena vesti</a></li>
+        </ul>
+      </div>
+    </div>
+    <div id="content_header"></div>
+    <div id="site_content">
+      <div id="banner">
+       
+      </div>
+	  <div id="sidebar_container">
+
+      <div class="sidebar">
+        <div class="sidebar_top"></div> 
+        <div class="sidebar_item">
+        <h3>Izlogujte se: </h3>
+       <form>
+         
+           <input class="submit" type="submit" name="logout" value="Logout" (click)='logout()'/>
+      
+       </form>
+          
+        </div>
+        <div class="sidebar_base"></div>
+      </div> 
+      
+        <div class="sidebar">
+          <div class="sidebar_top"></div>
+          <div class="sidebar_item">
+            <!-- insert your sidebar items here -->
+           
+            <h2>Podaci o predmetu:  </h2>
+            <div *ngIf = 'prikaz'>
+                <h3>Naziv: {{prikaz.naziv}}</h3>
+                <h3>Tip: {{prikaz.tip}}</h3>
+                <h3>Sifra: {{prikaz.sifra}}</h3>
+                <h3>Fond: {{prikaz.fond}}</h3>
+                <h3>ESPB: {{prikaz.espb}}</h3>
+                <h3>Predavanja: {{prikaz.predavanja}}</h3>
+                <h3>Vezbe: {{prikaz.vezbe}}</h3>
+                <h3>Lab vezbe: {{prikaz.labvezbe}}</h3>
+                <h3></h3>
+
+            </div>
+            
+          </div>
+          <div class="sidebar_base"></div>
+        </div>
+        <div class="sidebar">
+          <div class="sidebar_top"></div> 
+          <div class="sidebar_item">
+            <h3>Korisni linkovi</h3>
+            <ul>
+              <li><a href="http://rti.etf.bg.ac.rs/">RTI</a></li>
+              <li><a href="https://www.etf.bg.ac.rs/">ETF</a></li>
+              <li><a href="http://rti.etf.bg.ac.rs/rti/ir4pia/">PIA</a></li>
+            </ul>
+          </div>
+          <div class="sidebar_base"></div>
+        </div>
+        
+      </div>
+      <div id="content">
+    
+
+        <h1>Moji predmeti: </h1>
+
+        <table style="width:100%; border-spacing:0;">
+            <tr>
+              <th>Naziv</th>
+              <th>Grupa</th>
+              <th>Detalji</th>
+              <th>Uredi info</th>
+              <th>Predavanja</th>
+              <th>Vezbe</th>
+              <th>Ispitna pitanja</th>
+              <th>Laboratorija</th>
+           
+            </tr>
+            <tr *ngFor='let p of predmeti'>
+              <td>{{p.naziv}}</td>
+              <td>{{p.grupa}}</td>
+              <td><input type="submit" value="Detalji" (click)="detalji(p)"></td>
+              <td><input type="submit" value="Uredi info" (click)="urediInformacije(p)"></td>
+              <td><input type="submit" value="Predavanja" (click)="urediPred(p)"></td>
+              <td><input type="submit" value="Vezbe" (click)="urediVez(p)"></td>
+              <td><input type="submit" value="Ispitna pitanja" (click)="urediIspitnaPitanja(p)"></td>
+              <td><input type="submit" value="Laboratorija" (click)="urediLaboratoriju(p)"></td>
+            </tr>
+          </table>
+       
+
+        <hr>
+
+        <div *ngIf='urediInfo'>
+            <h1>Uredi informacije o predmetu: </h1>
+
+          <form >
+            <div class="form_settings">
+                <p><span>Sifra: </span>
+                    <input  type="text"  name="sifra" [(ngModel)]='uredjivanje.sifra'/>   
+                </p>
+                <p><span>Status</span>
+                    <select name="status" [(ngModel)]='uredjivanje.tip'>
+                      <option value="obavezni">Obavezni</option>
+                      <option value="izborni">Izborni</option>
+                    </select>
+                </p>
+                <p><span>ESPB: </span>
+                    <input  type="text"  name="espb" [(ngModel)]='uredjivanje.espb'/>   
+                </p>
+                <p><span>Cilj: </span>
+                    <textarea rows="8" cols="50"  type="text"  name="cilj" [(ngModel)]='uredjivanje.cilj'></textarea>   
+                </p>
+                <p><span>Ishod: </span>
+                    <textarea rows="8" cols="50"  type="text"  name="ishod" [(ngModel)]='uredjivanje.ishod'></textarea>   
+                </p>
+
+                <p style="padding-top: 15px"><span>&nbsp;</span>
+                    <input class="submit" type="submit" name="submit" value="Azuriraj" (click)='azuriraj()'/>
+                </p>
+ 
+            </div>
+          </form>
+        </div>
+
+        <div *ngIf='urediPredavanja'>
+            <h1>Uredi materijale za predavanja za predmet {{uredjivanje.naziv}}: </h1>
+
+            <table style="width:100%; border-spacing:0;">
+              <tr>
+                <th>Naslov</th>
+                <th>Fajl</th>
+                <th>Autor</th>
+                <th>Ekstenzija</th>
+                <th>Velicina</th>
+                <th>Datum</th>
+                <th>Ukloni</th>
+             
+              </tr>
+              <tr *ngFor='let l of lista'>
+                <td>{{l.naslov}}</td>
+                <td>{{l.fajl}}</td>
+                <td>{{l.autor}}</td>
+                <td>{{l.tip}}</td>
+                <td>{{l.velicina}}</td>
+                <td>{{l.datum.getFullYear()}}-{{l.datum.getMonth()}}-{{l.datum.getDay()}}</td>
+                <td><input type="submit" value="Ukloni" (click)="ukloni(l)"></td>
+              </tr>
+            </table>
+        </div>
+
+        <div *ngIf='urediVezbe'>
+            <h1>Uredi materijale za vezbe za predmet {{uredjivanje.naziv}}: </h1>
+
+            <table style="width:100%; border-spacing:0;">
+              <tr>
+                <th>Naslov</th>
+                <th>Fajl</th>
+                <th>Autor</th>
+                <th>Ekstenzija</th>
+                <th>Velicina</th>
+                <th>Datum</th>
+                <th>Ukloni</th>
+             
+              </tr>
+              <tr *ngFor='let l of listav'>
+                <td>{{l.naslov}}</td>
+                <td>{{l.fajl}}</td>
+                <td>{{l.autor}}</td>
+                <td>{{l.tip}}</td>
+                <td>{{l.velicina}}</td>
+                <td>{{l.datum.getFullYear()}}-{{l.datum.getMonth()}}-{{l.datum.getDay()}}</td>
+                <td><input type="submit" value="Ukloni" (click)="ukloniv(l)"></td>
+              </tr>
+            </table>
+        </div>
+
+        <div *ngIf='urediispitna'>
+            <h1>Uredi materijale za ispit za predmet {{uredjivanje.naziv}}: </h1>
+
+            
+            <table style="width:100%; border-spacing:0;">
+              <tr>
+                <th>Naslov</th>
+                <th>Fajl</th>
+                <th>Autor</th>
+                <th>Ekstenzija</th>
+                <th>Velicina</th>
+                <th>Datum</th>
+                <th>Ukloni</th>
+             
+              </tr>
+              <tr *ngFor='let l of listai'>
+                <td>{{l.naslov}}</td>
+                <td>{{l.fajl}}</td>
+                <td>{{l.autor}}</td>
+                <td>{{l.tip}}</td>
+                <td>{{l.velicina}}</td>
+                <td>{{l.datum.getFullYear()}}-{{l.datum.getMonth()}}-{{l.datum.getDay()}}</td>
+                <td><input type="submit" value="Ukloni" (click)="ukloniisp(l)"></td>
+              </tr>
+            </table>
+         
+        </div>
+
+        
+        <div *ngIf='urediLab'>
+          <div *ngIf = 'imalab'>
+          <h1>Uredi materijale za laboratorijske vezbe za predmet {{uredjivanje.naziv}}: </h1>
+
+          
+          <table style="width:100%; border-spacing:0;" >
+            <tr>
+              <th>Naslov</th>
+              <th>Fajl</th>
+              <th>Tekst</th>
+              <th>Autor</th>
+              <th>Ekstenzija</th>
+              <th>Velicina</th>
+              <th>Datum</th>
+              <th>Ukloni</th>
+           
+            </tr>
+            <tr *ngFor='let l of listal'>
+              <td>{{l.naslov}}</td>
+              <td>{{l.fajl}}</td>
+              <td>{{l.tekst}}</td>
+              <td>{{l.autor}}</td>
+              <td>{{l.tip}}</td>
+              <td>{{l.velicina}}</td>
+              <td>{{l.datum.getFullYear()}}-{{l.datum.getMonth()}}-{{l.datum.getDay()}}</td>
+              <td><input type="submit" value="Ukloni" (click)="uklonilab(l)"></td>
+            </tr>
+          </table>
+          </div>
+          <div *ngIf='nemalab'>
+            {{nemalabporuka}}
+
+          </div>
+       
+      </div>
+
+        <div> 
+          <h1></h1>
+          <h1></h1>
+          <h1></h1>
+          <h1></h1>
+          <h1></h1>
+          <h1></h1>
+      </div>
+        
+      
+      </div>
+    </div>
+    <div id="content_footer"></div>
+    <div id="footer">
+
+      <p>Elektrotehnički fakultet u Beogradu &copy; 2021 </p>
+    </div>
+  </div>
+</body>
+</html>
+
+
+

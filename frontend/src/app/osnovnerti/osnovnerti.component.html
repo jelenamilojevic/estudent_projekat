@@ -1,0 +1,182 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <title>ETF Beograd</title>
+  <meta name="description" content="website description" />
+  <meta name="keywords" content="website keywords, website keywords" />
+  <meta http-equiv="content-type" content="text/html; charset=windows-1252" />
+</head>
+
+<body>
+  <div id="main">
+    <div id="header">
+      <div id="logo">
+        <div id="logo_text">
+          <!-- class="logo_colour", allows you to change the colour of the text -->
+          <h1><a href="index.html">ETF <span class="logo_colour">Beograd</span></a></h1>
+          <h2>Katedra za računarsku tehniku i informatiku</h2>
+        </div>
+      </div>
+      <div id="menubar" *ngIf='gost'>
+        <ul id="menu">
+          <!-- put class="selected" in the li tag for the selected page - to highlight which page you're on -->
+          <li><a routerLink='/login'>Početna</a></li>
+          <li><a routerLink='/zaposleni'>Zaposleni</a></li>
+          <li><a routerLink='/obavestenja'>Obaveštenja</a></li>
+          <li class="selected"><a routerLink='/osnovne'>Osnovne studije</a></li>
+          <li><a routerLink='/master'>Master studije</a></li>
+          <li><a routerLink='/projekti'>Projekti</a></li>
+          <li><a routerLink='/nauka'>Nauka</a></li>
+          <li><a routerLink='/kontakt'>Kontakt</a></li>
+        </ul>
+      </div>
+      <div id="menubar" *ngIf='student'>
+        <ul id="menu">
+          <!-- put class="selected" in the li tag for the selected page - to highlight which page you're on -->
+          <li><a routerLink='/student'>Početna</a></li>
+          <li><a routerLink='/zaposleni'>Zaposleni</a></li>
+          <li><a routerLink='/obavestenja'>Obaveštenja</a></li>
+          <li class="selected"><a routerLink='/osnovne'>Osnovne studije</a></li>
+          <li><a routerLink='/master'>Master studije</a></li>
+          <li><a routerLink='/projekti'>Projekti</a></li>
+          <li><a routerLink='/nauka'>Nauka</a></li>
+          <li><a routerLink='/kontakt'>Kontakt</a></li>
+        </ul>
+      </div>
+    </div>
+    <div id="content_header"></div>
+    <div id="site_content">
+      <div id="banner"></div>
+	  <div id="sidebar_container">
+
+      <div class="sidebar" *ngIf='student'>
+        <div class="sidebar_top"></div> 
+        <div class="sidebar_item">
+        <h3>Izlogujte se: </h3>
+       <form>
+         
+           <input class="submit" type="submit" name="logout" value="Logout" (click)='logout()'/>
+      
+       </form>
+          
+        </div>
+        <div class="sidebar_base"></div>
+      </div> 
+
+      <div class="sidebar" *ngIf='gost'>
+        <div class="sidebar_top"></div>
+        <div class="sidebar_item">
+          <!-- insert your sidebar items here -->
+         
+          <h4>Na ovom linku se možete registrovati kao novi korisnik</h4>
+          
+          <a routerLink='/registracija'> <h3>Registracija</h3></a>
+        </div>
+        <div class="sidebar_base"></div>
+      </div>
+      <div class="sidebar">
+        <div class="sidebar_top"></div> 
+        <div class="sidebar_item">
+          <h3>Korisni linkovi</h3>
+          <ul>
+            <li><a href="http://rti.etf.bg.ac.rs/">RTI</a></li>
+            <li><a href="https://www.etf.bg.ac.rs/">ETF</a></li>
+            <li><a href="http://rti.etf.bg.ac.rs/rti/ir4pia/">PIA</a></li>
+          </ul>
+        </div>
+        <div class="sidebar_base"></div>
+      </div>
+        
+      </div>
+      <div id="content">
+
+        <div>
+            <h1>Osnovne akademske studije RTI</h1>
+            <hr>
+            <h2>Prvi semestar</h2>
+             <h3>Obavezni predmeti</h3>
+              Programiranje 1<br/>
+             <h3>Izborni predmeti</h3>
+             Uvod u računarstvo<br/>
+             Praktikum iz programiranja 1<br/><br/>
+             <hr>
+            <h2>Drugi semestar</h2>
+             <h3>Obavezni predmeti</h3>
+             Programiranje 2<br/>
+             <h3>Izborni predmeti</h3>
+             Osnovi računarske tehnike<br/>
+             Praktikum iz programiranja 2<br/><br/>
+             <hr>
+           <h2>Treci semestar</h2>
+             <h3>Obavezni predmeti</h3>
+             Objektno-orijentisano programiranje 1<br/>
+             Osnovi računarske tehnike 2<br/>
+             Algoritmi i strukture podataka<br/><br/>
+             
+             <hr>
+           <h2>Četvrti semestar</h2>
+             <h3>Obavezni predmeti</h3>
+             Operativni sistemi 1<br/>
+             Arhitektura računara<br/>
+             Objektno-orijentisano programiranje 2<br/>
+             Računarske mreže 1<br/>
+             <h3>Izborni predmeti</h3>
+             Praktikum iz operativnih sistema<br/><br/>
+             <hr>
+           <h2>Peti semestar</h2>
+             <h3>Obavezni predmeti</h3>
+             Arhitektura i organizacija računara 1<br/>
+             Baze podataka 1<br/>
+             Konkurentno i distribuirano programiranje<br/>
+             <h3>Izborni predmeti</h3>
+             Operativni sistemi 2<br/>
+             Praktikum iz poslovne komunikacije i prezentacije<br/><br/>
+             <hr>
+           <h2>Šesti semestar</h2>
+             <h3>Obavezni predmeti</h3>
+             Programiranje internet aplikacija<br/>
+             Zaštita podataka<br/>
+             Sistemski softver<br/>
+             <h3>Izborni predmeti</h3>
+             Arhitektura i organizacija računara 2<br/>
+             Upravljanje softverskim projektima<br/><br/>
+             <hr>
+           <h2>Sedmi semestar</h2>
+             <h3>Obavezni predmeti</h3>
+            Programski prevodioci <br/>
+            Mikroprocesorski sistemi<br/>
+            Računarski VLSI sistemi<br/>
+             <h3>Izborni predmeti</h3>
+             Računarske mreže 2<br/>
+             Projektovanje softvera<br/>
+             Inteligentni sistemi<br/><br/>
+             <hr>
+           <h2>Osmi semestar</h2>
+             <h3>Obavezni predmeti</h3>
+             Performanse računarskih sistema<br/>
+             <h3>Izborni predmeti</h3>
+             Baze podataka 2<br/>
+             Informacioni sistemi 1<br/>
+             Infrastruktura za elektronsko poslovanje<br/>
+             Multiprocesorski sistemi<br/>
+             Softverski alati baza podataka<br/>
+             Računarska grafika<br/>
+             Paralelni računarski sistemi<br/>
+             Dodatno:Stručna praksa i završni rad<br/><br/>
+             </div>
+      
+      </div>
+    </div>
+    <div id="content_footer"></div>
+    <div id="footer">
+
+      <p>Elektrotehnički fakultet u Beogradu &copy; 2021 </p>
+    </div>
+  </div>
+</body>
+</html>
+
+
+
+
