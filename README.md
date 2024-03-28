@@ -13,5 +13,11 @@ cd backend
 tsc
 npm run serve
 ```
+To run frontend:
+```
+cd frontend
+ng serve --open
+
+```
 
  
